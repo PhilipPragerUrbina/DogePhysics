@@ -1,0 +1,23 @@
+"C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\Philip\CLionProjects\DogePhysics -B C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug
+CMake Warning at external/corrade/src/Corrade/CMakeLists.txt:75 (message):
+  Can't match Git version: fatal: not a git repository:
+  C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/../../../.git/modules/external/modules/corrade
+
+
+
+
+CMake Warning at external/magnum/src/Magnum/CMakeLists.txt:68 (message):
+  Can't match Git version: fatal: not a git repository:
+  C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/../.git/modules/magnum
+
+
+
+
+-- Could NOT find SDL2 (missing: SDL2_LIBRARY SDL2_INCLUDE_DIR) 
+CMake Error at external/magnum/src/Magnum/Platform/CMakeLists.txt:292 (message):
+  SDL2 library, required by Sdl2Application, was not found.  Set
+  MAGNUM_WITH_SDL2APPLICATION to OFF to skip building it.
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/CMakeFiles/CMakeOutput.log".
