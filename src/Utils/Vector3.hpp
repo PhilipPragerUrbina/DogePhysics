@@ -168,9 +168,9 @@ namespace Doge {
          * @return The cross product or vector product
          */
         Vector3 cross(const Vector3 &other) const {
-            return {y * z - z * y,
-                    z * x - x * z,
-                    x * y - y * x};
+            return {y * other.z - z * other.y,
+                    z * other.x - x * other.z,
+                    x * other.y - y * other.x};
         }
         /**
          * Reflect a vector over a normal
@@ -180,7 +180,6 @@ namespace Doge {
         Vector3 reflect(const Vector3& n) const{
             return *this - 2*this->dot(n) * n;
         }
-
 
     };
 

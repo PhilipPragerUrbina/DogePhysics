@@ -6,6 +6,7 @@ CMake Warning at external/corrade/src/Corrade/CMakeLists.txt:75 (message):
 
 
 
+-- Found Corrade: C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src  found components: Containers rc Utility 
 CMake Warning at external/magnum/src/Magnum/CMakeLists.txt:68 (message):
   Can't match Git version: fatal: not a git repository:
   C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/../.git/modules/magnum
@@ -13,11 +14,8 @@ CMake Warning at external/magnum/src/Magnum/CMakeLists.txt:68 (message):
 
 
 
--- Could NOT find SDL2 (missing: SDL2_LIBRARY SDL2_INCLUDE_DIR) 
-CMake Error at external/magnum/src/Magnum/Platform/CMakeLists.txt:292 (message):
-  SDL2 library, required by Sdl2Application, was not found.  Set
-  MAGNUM_WITH_SDL2APPLICATION to OFF to skip building it.
-
-
--- Configuring incomplete, errors occurred!
-See also "C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+-- Found Corrade: C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src  found components: Containers rc Utility Main TestSuite 
+-- Found Corrade: C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src  found components: Containers rc Utility PluginManager 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug

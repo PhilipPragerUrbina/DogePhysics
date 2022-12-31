@@ -215,6 +215,9 @@ CORRADE_BUILD_STATIC:BOOL=OFF
 //Build unit tests
 CORRADE_BUILD_TESTS:BOOL=OFF
 
+//Prefix where to put platform-independent include and other files
+CORRADE_INCLUDE_INSTALL_PREFIX:STRING=.
+
 //Enable compatibility mode for MSVC 2015 (might disable some features)
 CORRADE_MSVC2015_COMPATIBILITY:BOOL=OFF
 
@@ -291,6 +294,9 @@ MAGNUM_BUILD_TESTS:BOOL=OFF
 
 //Prefix where to put final application executables
 MAGNUM_DEPLOY_PREFIX:STRING=.
+
+//Prefix where to put platform-independent include and other files
+MAGNUM_INCLUDE_INSTALL_PREFIX:STRING=.
 
 //Base directory where to look for Magnum plugins for debug builds
 MAGNUM_PLUGINS_DEBUG_DIR:STRING=
@@ -430,6 +436,45 @@ MAGNUM_WITH_WINDOWLESSWGLAPPLICATION:BOOL=OFF
 //Path to a library.
 Magnum:FILEPATH=Magnum-NOTFOUND
 
+//Dependencies for the target
+MagnumDebugTools_LIB_DEPENDS:STATIC=general;Magnum;general;Corrade::TestSuite;general;MagnumTrade;general;MagnumGL;general;MagnumMeshTools;general;MagnumPrimitives;general;MagnumSceneGraph;general;MagnumShaders;
+
+//Dependencies for the target
+MagnumGL_LIB_DEPENDS:STATIC=general;Magnum;general;opengl32;
+
+//Dependencies for the target
+MagnumMaterialTools_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumTrade;
+
+//Dependencies for the target
+MagnumMeshTools_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumTrade;general;MagnumGL;
+
+//Dependencies for the target
+MagnumPrimitives_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumMeshTools;general;MagnumTrade;
+
+//Dependencies for the target
+MagnumSceneGraph_LIB_DEPENDS:STATIC=general;Magnum;
+
+//Dependencies for the target
+MagnumSceneTools_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumTrade;
+
+//Dependencies for the target
+MagnumSdl2Application_LIB_DEPENDS:STATIC=general;Magnum;general;SDL2::SDL2;general;MagnumGL;
+
+//Dependencies for the target
+MagnumShaderTools_LIB_DEPENDS:STATIC=general;Magnum;general;Corrade::PluginManager;
+
+//Dependencies for the target
+MagnumShaders_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumGL;
+
+//Dependencies for the target
+MagnumText_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumTextureTools;general;Corrade::PluginManager;general;MagnumGL;
+
+//Dependencies for the target
+MagnumTextureTools_LIB_DEPENDS:STATIC=general;Magnum;general;MagnumGL;
+
+//Dependencies for the target
+MagnumTrade_LIB_DEPENDS:STATIC=general;Magnum;general;Corrade::PluginManager;
+
 //Value Computed by CMake
 Magnum_BINARY_DIR:STATIC=C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum
 
@@ -458,16 +503,16 @@ PROTOBUF_LIBRARY:FILEPATH=PROTOBUF_LIBRARY-NOTFOUND
 SDL2_DLL_DEBUG:FILEPATH=SDL2_DLL_DEBUG-NOTFOUND
 
 //Path to a file.
-SDL2_DLL_RELEASE:FILEPATH=SDL2_DLL_RELEASE-NOTFOUND
+SDL2_DLL_RELEASE:FILEPATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x64/SDL2.dll
 
 //Path to a file.
-SDL2_INCLUDE_DIR:PATH=SDL2_INCLUDE_DIR-NOTFOUND
+SDL2_INCLUDE_DIR:PATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/include
 
 //Path to a library.
 SDL2_LIBRARY_DEBUG:FILEPATH=SDL2_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-SDL2_LIBRARY_RELEASE:FILEPATH=SDL2_LIBRARY_RELEASE-NOTFOUND
+SDL2_LIBRARY_RELEASE:FILEPATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x64/SDL2.lib
 
 //Path to a library.
 filament:FILEPATH=filament-NOTFOUND
@@ -563,7 +608,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=24
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=38
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
@@ -613,13 +658,20 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 CORRADE_INCLUDE_DIR-ADVANCED:INTERNAL=1
 CORRADE_INCLUDE_DIR:INTERNAL=C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src
 //Details about finding Corrade
-FIND_PACKAGE_MESSAGE_DETAILS_Corrade:INTERNAL=[C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src][C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/modules][C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/corrade/src/Corrade/configure.h][cfound components: Containers rc Utility ][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_Corrade:INTERNAL=[C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src][C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/modules][C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/corrade/src/Corrade/configure.h][cfound components: Containers rc Utility PluginManager ][v()]
 //Details about finding Git
 FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[C:/Program Files/Git/cmd/git.exe][v2.32.0.windows.2()]
+//Details about finding Magnum
+FIND_PACKAGE_MESSAGE_DETAILS_Magnum:INTERNAL=[C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src][Magnum::Magnum][cfound components: Trade GL MeshTools Primitives Shaders Sdl2Application ][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
+//Details about finding SDL2
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x64/SDL2.lib][C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/include][v()]
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MAGNUM_INCLUDE_DIR
+MAGNUM_INCLUDE_DIR-ADVANCED:INTERNAL=1
+MAGNUM_INCLUDE_DIR:INTERNAL=C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
@@ -638,4 +690,7 @@ _CORRADE_CONFIGURE_FILE:INTERNAL=C:/Users/Philip/CLionProjects/DogePhysics/cmake
 _CORRADE_MODULE_DIR-ADVANCED:INTERNAL=1
 _CORRADE_MODULE_DIR:INTERNAL=C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/modules
 _MAGNUM_ACCEPT_DEPRECATED_UNPREFIXED_OPTIONS:INTERNAL=OFF
+//ADVANCED property for variable: _MAGNUM_CONFIGURE_FILE
+_MAGNUM_CONFIGURE_FILE-ADVANCED:INTERNAL=1
+_MAGNUM_CONFIGURE_FILE:INTERNAL=C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum/src/Magnum/configure.h
 

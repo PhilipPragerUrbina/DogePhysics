@@ -1,0 +1,53 @@
+The user owns the loop
+There is no "Physics World"
+Physics objects are contained in the user's scene graph. The user can query them as needed for rendering(getWheelPosition), and is responsible for stepping them.
+Physics can have colliders specified on constructor. Complex colliders can be made using Compound Collider.
+Collisions are handled by Collision layers. You specify a collision layer in the constructor of a physics object. If an object is to collide with multiple layers, use compound collision layer which mixes two existing layers and querys both.
+An object will take this collision layer, register itself in it, and store it for querying and updating its position.
+If an object should not collide with a layer, but still be in it, register it manually.
+If an object should collide, but not exist in the layer, use a method that will have the object query but not register.
+If an object's collisions are optional, like particles, use an setCollisionLayer method rather than in the constructor.
+
+Generators are a self contained compound physics object. They have thier own little world, and create their own physics objects within based on parameters. They are basically just taking some work away from the user.
+The api is the same as any physics object, with stepping, and adding collision layers and such.
+Generators still need you to step thier sub components.
+For example, when a gun spawns a bullet, you still need to step it. It will apply forces and everything. This is to make it easier for you to create a new scene graph node for that bullet. That way you can just get the physics object, and create a new node
+with it, without needing to specify not to step it.
+
+The problem is how do we render the parts of a generator, without leakage of our other engine parts
+Lambdas could also work, but rendering and physics usually happen in separate steps, unless we created a lambda for new object creation, but at that point we may as well leave it to the user to do that on gun.shoot().
+
+A generator is a physics object, which creates and applies forces to other physics objects,which you are free to get in order to apply your own forces, step , and render.
+
+
+As for our engine, node will be generalized. Specific scene graph node behavior will be achieved with lambda "scripts" which pass in the node itself from which the physicsobject, render object, parent etc can be accessed. Typing might be
+and issue with polymorphism. There will be scripts for update, and for render. Although just defining node types migh eb better eg: carnode.
+
+Objects do not conatian a refernce to any collison layers. You take a collidable object, and you register it to a collision layer or collison resolution group(shared pointer0. It then applies force as needed, or takes it into account if it is static. addStatic(Collidable b),register(Physical&collidable b);
+
+Example:
+PhysicsObject gun = gun(20,9.8, ShootLayer);
+gun.setPosition({2,2,2});
+
+
+
+update(){
+if(click){
+
+Physics-object* bullet = gun.shoot();// normally there would be multiple
+addChild(bullet_model, bullet) { bullet.getPosition
+bullet.hit
+bullet.destroy
+bullet_node.destroy
+}
+
+
+}
+
+renderGun({2,2,2});
+gun.simulate();
+if(gun.hit()){
+gun.getLastHitId.
+}
+}
+
