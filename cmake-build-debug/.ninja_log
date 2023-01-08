@@ -1,9 +1,9 @@
 # ninja log v5
-8	1036	6941468720517630	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+8	1061	6948520964835315	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
 738	1081	6938649432239007	external/magnum/src/Magnum/GL/CMakeFiles/MagnumGLObjects.dir/TextureFormat.cpp.obj	4853c2fe4b7b132e
 928	1430	6938649435737010	external/magnum/src/Magnum/GL/CMakeFiles/MagnumGLObjects.dir/TimeQuery.cpp.obj	4dc8f2c34aa3c9f8
 87	681	6938649428145486	external/magnum/src/Magnum/CMakeFiles/Magnum.dir/Math/Functions.cpp.obj	ee8f00f93caddbe1
-0	85	6941485533621040	build.ninja	a91fc15d20adeddd
+0	85	6948521688581915	build.ninja	a91fc15d20adeddd
 2839	3353	6938649454993557	external/magnum/src/Magnum/GL/CMakeFiles/MagnumGLObjects.dir/PipelineStatisticsQuery.cpp.obj	9d02c7cff822fadc
 1201	1378	6938649435231574	external/magnum/src/Magnum/GL/CMakeFiles/MagnumGLObjects.dir/OpenGL.cpp.obj	fdf9344aa28bba5f
 1400	7526	6938652346137569	external/magnum/src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/AbstractSceneConverter.cpp.obj	9babe26f9a7a14d8
@@ -129,7 +129,7 @@
 1920	3516	6938652306058137	external/magnum/src/Magnum/Trade/CMakeFiles/MagnumTrade.dir/MeshData.cpp.obj	e8d2f4052c7d00ad
 5441	5540	6938649476266830	Debug/lib/MagnumSdl2Application-d.lib	12b1af69b5d5343
 3830	4165	6938651559451661	Debug/lib/MagnumShaders-d.lib	b1fe70d8911ddd02
-1037	1188	6941468721793725	Debug/bin/DogePhysics.exe	ff45f6a4bf7b5553
+1062	1197	6948520965976297	Debug/bin/DogePhysics.exe	5e865767626dfee2
 66	547	6938651523470752	external/corrade/src/Corrade/Utility/CMakeFiles/corrade-rc.dir/Implementation/WindowsWeakSymbol.cpp.obj	c73da3589b96762a
 27	553	6938651523530802	external/corrade/src/Corrade/Utility/CMakeFiles/corrade-rc.dir/__/Cpu.cpp.obj	6742a9ef0411697e
 6	553	6938651523520799	external/corrade/src/Corrade/CMakeFiles/CorradeMain.dir/CorradeMain.cpp.obj	c1fc14f1a14ad778
@@ -209,5 +209,24 @@
 7990	8341	6938652354019340	Debug/bin/MagnumMeshTools-d.dll	30de5804fbce495b
 8341	8628	6938652356961871	Debug/bin/MagnumPrimitives-d.dll	11445861e51c9cd3
 8341	8628	6938652356961871	Debug/lib/MagnumPrimitives-d.lib	11445861e51c9cd3
-8	1299	6941493020858549	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
-1300	1450	6941493022149659	Debug/bin/DogePhysics.exe	ff45f6a4bf7b5553
+8	439	6948520497008520	CMakeFiles/DogePhysics.dir/src/Demo/Fireworks/FireworksDemo.cpp.obj	fe9ba3ec23ecdbf3
+8	1057	6948523162092455	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1058	1193	6948523163233437	Debug/bin/DogePhysics.exe	5e865767626dfee2
+8	1092	6948524006062312	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1093	1230	6948524007223308	Debug/bin/DogePhysics.exe	5e865767626dfee2
+8	1074	6948524221632462	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1074	1210	6948524222778446	Debug/bin/DogePhysics.exe	5e865767626dfee2
+9	1017	6948524791326746	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1018	1154	6948524792467724	Debug/bin/DogePhysics.exe	5e865767626dfee2
+7	1046	6948525648562989	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1047	1189	6948525649749013	Debug/bin/DogePhysics.exe	5e865767626dfee2
+9	1061	6948525893678510	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1061	1202	6948525894864531	Debug/bin/DogePhysics.exe	5e865767626dfee2
+9	909	6948526032247523	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+910	1039	6948526033333456	Debug/bin/DogePhysics.exe	5e865767626dfee2
+8	1042	6948526235386992	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1042	1176	6948526236522967	Debug/bin/DogePhysics.exe	5e865767626dfee2
+9	1040	6948526433001720	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1040	1169	6948526434082644	Debug/bin/DogePhysics.exe	5e865767626dfee2
+8	1369	6948539544993108	CMakeFiles/DogePhysics.dir/src/main.cpp.obj	48338d354804b605
+1369	1522	6948539546274202	Debug/bin/DogePhysics.exe	5e865767626dfee2

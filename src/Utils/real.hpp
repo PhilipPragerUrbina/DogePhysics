@@ -8,6 +8,7 @@ namespace Doge {
     /**
      * Allow easy swap of precision used for calculations
      * A floating point number
+     * Standard c++ math operations will be used on it
      */
     typedef float real;
 

@@ -58,6 +58,15 @@ build CMakeFiles\DogePhysics.dir\src\main.cpp.obj: CXX_COMPILER__DogePhysics_Deb
   TARGET_COMPILE_PDB = CMakeFiles\DogePhysics.dir\
   TARGET_PDB = Debug\bin\DogePhysics.pdb
 
+build CMakeFiles\DogePhysics.dir\src\Demo\Fireworks\FireworksDemo.cpp.obj: CXX_COMPILER__DogePhysics_Debug C$:\Users\Philip\CLionProjects\DogePhysics\src\Demo\Fireworks\FireworksDemo.cpp || cmake_object_order_depends_target_DogePhysics
+  DEFINES = -DCORRADE_IS_DEBUG_BUILD -DNOMINMAX -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd /W4 /wd4127 /wd4251 /wd4244 /wd4267 /wd4324 /wd4351 /wd4373 /wd4458 /wd4510 /wd4610 /wd4512 /wd4661 /wd4702 /wd4706 /wd4800 /wd4910 -std:c++17
+  INCLUDES = -IC:\Users\Philip\CLionProjects\DogePhysics\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src -IC:\Users\Philip\CLionProjects\DogePhysics\external\SDL2-2.24.2\include
+  OBJECT_DIR = CMakeFiles\DogePhysics.dir
+  OBJECT_FILE_DIR = CMakeFiles\DogePhysics.dir\src\Demo\Fireworks
+  TARGET_COMPILE_PDB = CMakeFiles\DogePhysics.dir\
+  TARGET_PDB = Debug\bin\DogePhysics.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target DogePhysics
@@ -66,7 +75,7 @@ build CMakeFiles\DogePhysics.dir\src\main.cpp.obj: CXX_COMPILER__DogePhysics_Deb
 #############################################
 # Link the executable Debug\bin\DogePhysics.exe
 
-build Debug\bin\DogePhysics.exe: CXX_EXECUTABLE_LINKER__DogePhysics_Debug CMakeFiles\DogePhysics.dir\src\main.cpp.obj | Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib Debug\lib\MagnumPrimitives-d.lib Debug\lib\MagnumShaders-d.lib ..\external\SDL2-2.24.2\lib\x64\SDL2.lib Debug\lib\MagnumMeshTools-d.lib Debug\lib\MagnumTrade-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\MagnumGL-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumGL-d.dll Debug\bin\MagnumMeshTools-d.dll Debug\bin\MagnumPrimitives-d.dll Debug\bin\MagnumShaders-d.dll Debug\bin\MagnumTrade-d.dll Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib
+build Debug\bin\DogePhysics.exe: CXX_EXECUTABLE_LINKER__DogePhysics_Debug CMakeFiles\DogePhysics.dir\src\main.cpp.obj CMakeFiles\DogePhysics.dir\src\Demo\Fireworks\FireworksDemo.cpp.obj | Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib Debug\lib\MagnumPrimitives-d.lib Debug\lib\MagnumShaders-d.lib ..\external\SDL2-2.24.2\lib\x64\SDL2.lib Debug\lib\MagnumMeshTools-d.lib Debug\lib\MagnumTrade-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\MagnumGL-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumGL-d.dll Debug\bin\MagnumMeshTools-d.dll Debug\bin\MagnumPrimitives-d.dll Debug\bin\MagnumShaders-d.dll Debug\bin\MagnumTrade-d.dll Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = Debug\lib\CorradeMain-d.lib  Debug\lib\MagnumSdl2Application-d.lib  Debug\lib\MagnumPrimitives-d.lib  Debug\lib\MagnumShaders-d.lib  -ENTRY:wmainCRTStartup  ..\external\SDL2-2.24.2\lib\x64\SDL2.lib  Debug\lib\MagnumMeshTools-d.lib  Debug\lib\MagnumTrade-d.lib  Debug\lib\CorradePluginManager-d.lib  Debug\lib\MagnumGL-d.lib  opengl32.lib  Debug\lib\Magnum-d.lib  Debug\lib\CorradeUtility-d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

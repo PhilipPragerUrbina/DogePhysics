@@ -80,7 +80,6 @@ private:
     //Used to calculate delta time
     std::chrono::time_point< std::chrono::high_resolution_clock> last_time =  std::chrono::high_resolution_clock::now();
 
-
     void tickEvent() override{
         double delta_time = std::chrono::duration<double>(std::chrono::high_resolution_clock::now() - last_time).count(); //get delta time in seconds
         last_time = std::chrono::high_resolution_clock::now() ;
