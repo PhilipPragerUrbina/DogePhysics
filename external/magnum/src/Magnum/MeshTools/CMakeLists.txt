@@ -45,7 +45,7 @@ set(MagnumMeshTools_GracefulAssert_SRCS
     Interleave.cpp
     Reference.cpp
     RemoveDuplicates.cpp
-    Transform.cpp)
+        Matrix4.cpp)
 
 set(MagnumMeshTools_HEADERS
     BoundingVolume.h

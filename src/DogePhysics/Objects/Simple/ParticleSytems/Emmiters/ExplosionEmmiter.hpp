@@ -7,7 +7,7 @@
 namespace Doge {
 
     //try game engine with billboards
-    class ExplosionGenerator {
+    class ExplosionEmmiter {
 
     };
 

@@ -10,12 +10,14 @@ namespace Doge {
     /**
      * A 4x4 transformation Matrix
      */
-    class Transform {
+    class Matrix4 {
+        real data[12];
 
 
     };
     /**
-     * Alternative name for transform.
+     * Alternative names for matrix.
      */
-    typedef Transform Mat4;
+    typedef Matrix4 Transform;
+    typedef Matrix4 Mat4;
 } // Doge

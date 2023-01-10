@@ -6,7 +6,9 @@
 
 namespace Doge {
 
-    //use something like xml
+    /**
+     * Use something like XML to load scenes
+     */
     class SceneParser {
 
     };

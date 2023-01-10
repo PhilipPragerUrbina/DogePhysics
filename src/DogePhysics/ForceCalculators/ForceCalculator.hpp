@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "../Particles/Particle.hpp"
+#include "../PhysicsObjects/Particles/Particle.hpp"
 
 namespace Doge {
 
