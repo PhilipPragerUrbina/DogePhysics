@@ -11,7 +11,7 @@
 
 class World : public Doge::GameObject{
 public:
-    Doge::ConstraintManager manager{20};
+    Doge::ConstraintManager manager{30};
 
     void addJoint(Joint* add){
         manager.add(add->getJoint());

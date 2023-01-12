@@ -22,7 +22,8 @@ namespace Doge {
         std::shared_ptr<Constrainable> b;
 
         //options
-        real rest_distance;
+        const real rest_distance;
+        const real inverse_stiffness;
     public:
 
         /**
@@ -30,8 +31,10 @@ namespace Doge {
          * @param a First object
          * @param b Second object
          * @param rest_distance Distance to hold between objects
+         * @param inverse_stiffness (1/stiffness). How much to enforce the constraint, also known as compliance.
+         * Examples: 0 is perfectly rigid hard constraint, 0.001 is a pretty stretchy constraint.
          */
-        DistanceConstraint( std::shared_ptr<Constrainable> a, std::shared_ptr<Constrainable> b , real rest_distance) : a(a),b(b), rest_distance(rest_distance){};
+        DistanceConstraint( std::shared_ptr<Constrainable> a, std::shared_ptr<Constrainable> b , const real rest_distance, const real inverse_stiffness = 0) : a(a),b(b), rest_distance(rest_distance), inverse_stiffness(inverse_stiffness){};
 
         void init() override {} //no init
 
@@ -45,13 +48,12 @@ namespace Doge {
             real distance = a->getPosition().distance(b->getPosition());
             Vector3 a_to_b = (b->getPosition() - a->getPosition()).normalized(); //X1 to X2 normalized
 
-            //todo having two  objects in same position propagates nans through normalized since a direction of 0 cannot be normalized.
-            //Causes simulation to disappear
-            //std::cout << "Norm " << b->getPosition() << " " <<  a->getPosition() << "\n";
+            //Denominator of constraint function
+            real denominator = a->getInverseMass()+b->getInverseMass() + (inverse_stiffness / (sub_step_delta * sub_step_delta)); //Also add compliance using timestamp squared
 
             //distribute error based on inverse masses to get correction vectors
-            Vector3 correction_a = (a->getInverseMass()/(a->getInverseMass()+b->getInverseMass()))*(distance - rest_distance)*a_to_b;
-            Vector3 correction_b = -(b->getInverseMass()/(a->getInverseMass()+b->getInverseMass()))*(distance - rest_distance)*a_to_b;
+            Vector3 correction_a = (a->getInverseMass()/(denominator))*(distance - rest_distance)*a_to_b;
+            Vector3 correction_b = -(b->getInverseMass()/(denominator))*(distance - rest_distance)*a_to_b;
 
             //correct position
             a->setPosition(a->getPosition() + correction_a);

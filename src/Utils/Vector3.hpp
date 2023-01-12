@@ -135,10 +135,14 @@ namespace Doge {
         /**
          * Get the normalized vector
          * @return The unit vector
-         * @warning (0,0,0) will propagate nans
+         * This implementation can handle zero vectors without propagating nans
          */
         inline Vector3 normalized() const{
-            return *this/length();
+            real l = length(); //Get length
+            if(l > 0){ //Make sure non-zero  vector to not propagate nans
+                return *this/l; //normalized
+            }
+            return *this; //Is zero vector, just return the zero vector
         }
 
         /**

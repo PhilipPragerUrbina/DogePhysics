@@ -20,7 +20,8 @@ public:
     Ball(Doge::real mass, Doge::Vector3 position){
         particle = std::make_shared<Doge::ConstrainableParticle> (mass);
         particle->setPosition(position);
-        particle->applyForce({0,-15,0});//todo why crash with 0. Why start so messed up.
+        particle->applyForce({0,-40,0});
+
     }
 
     std::shared_ptr<Doge::ConstrainableParticle> getParticle(){

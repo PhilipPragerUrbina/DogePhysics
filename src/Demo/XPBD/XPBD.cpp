@@ -23,7 +23,7 @@ scene->addObject(world);
         world->addJoint(new_joint);
         last_ball = new_ball;
     }
-    last_ball->getParticle()->setMass(100); //heavy end
+    //last_ball->getParticle()->setMass(1000); //heavy end
 
     //loop
    // world->addJoint(new Joint(last_ball,first_ball,3));
