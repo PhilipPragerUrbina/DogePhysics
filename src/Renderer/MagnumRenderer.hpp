@@ -63,7 +63,7 @@ public:
         shader = render_to;
 
         //Set camera projection
-        projection = Matrix4::perspectiveProjection(35.0_degf, window_dimensions.aspectRatio(), 0.1f, 1000.0f); //todo allow changing camera settings
+        projection = Matrix4::perspectiveProjection(110.0_degf, window_dimensions.aspectRatio(), 0.1f, 1000.0f); //todo allow changing camera settings
         shader->setProjectionMatrix(projection);
     }
 

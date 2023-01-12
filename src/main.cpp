@@ -5,6 +5,7 @@
 #include "DogeEngine/Scene/SceneGraph.hpp"
 #include "DogeEngine/Scene/Objects/Empty.hpp"
 #include "DogeEngine/Scene/Objects/Cube.hpp"
+#include "Demo/XPBD/XPBD.cpp"
 
 int main() {
 
@@ -13,13 +14,15 @@ int main() {
     MagnumApplication renderer("Renderer");
 
 //Create Camera
-    Doge::Camera cam({0, 2, -30}, {0, 0, 1});
+    Doge::Camera cam({0, 2, -300}, {0, 0, 1});
 
 //Create world
     Doge::SceneGraph scene(new Doge::Empty());
 
-    //todo set up demo scene
-    scene.addObject(new Doge::Cube());
+
+    //scene.addObject(new Doge::Cube());
+
+    createSceneXPBD(&scene);
 
     renderer.setUpdateCallback([&cam, &scene](Doge::real delta_time) {
         scene.update(delta_time); //update scene

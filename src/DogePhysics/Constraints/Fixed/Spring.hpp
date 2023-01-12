@@ -6,6 +6,7 @@
 
 namespace Doge {
 
+
     class Spring {
 
     };

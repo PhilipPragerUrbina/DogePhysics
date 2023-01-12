@@ -6,6 +6,7 @@
 
 #include <cmath>
 #include <ostream>
+#include <iostream>
 #include "real.hpp"
 
 namespace Doge {
@@ -134,6 +135,7 @@ namespace Doge {
         /**
          * Get the normalized vector
          * @return The unit vector
+         * @warning (0,0,0) will propagate nans
          */
         inline Vector3 normalized() const{
             return *this/length();

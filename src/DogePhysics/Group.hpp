@@ -23,7 +23,7 @@ namespace Doge {
          * @param object Reference to the object.
          * @warning Do not add same object multiple times
          */
-        void addObject(const std::shared_ptr<ObjectType>& object_ref){
+        void add(const std::shared_ptr<ObjectType>& object_ref){
             objects.push_back(object_ref);
         }
 
@@ -31,7 +31,7 @@ namespace Doge {
          * Search for reference to object and remove it
          * @param object_ref The object to remove from group
          */
-        void removeObject(const std::shared_ptr<ObjectType>& object_ref){
+        void remove(const std::shared_ptr<ObjectType>& object_ref){
             for (int i = 0; i < objects.size(); i++) {
                 if(objects[i] == object_ref){
                     objects.erase(i);
@@ -52,7 +52,7 @@ namespace Doge {
          * Get a raw pointer to an object
          * @param idx The index of the object
          */
-        ObjectType* getObject(int idx){
+        ObjectType* get(unsigned int idx){
             return objects[idx].get();
         }
 
