@@ -9,5 +9,7 @@ namespace Doge {
     class CollisionLayer {
 
     };
+    //todo potential contacts(see book)
+    //todo get list of collision data
 
 } // Doge

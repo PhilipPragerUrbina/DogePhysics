@@ -5,6 +5,7 @@
 #pragma once
 
 #include "../Utils/Vector3.hpp"
+#include "../Utils/Quaternion.hpp"
 
 namespace Doge {
 
@@ -73,6 +74,9 @@ namespace Doge {
         * @param direction A normalized vector direction to rotate in
         */
         virtual void rotate(real angle_degrees , const Doge::Vector3&  direction) = 0;
+
+        //todo doc
+        virtual void rotate(const Quaternion& rotation)= 0;
 
         /**
           * Rotate the active matrix to look at something

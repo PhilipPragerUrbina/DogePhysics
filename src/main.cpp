@@ -6,15 +6,23 @@
 #include "DogeEngine/Scene/Objects/Empty.hpp"
 #include "DogeEngine/Scene/Objects/Cube.hpp"
 #include "Demo/XPBD/XPBD.cpp"
+#include "Utils/Matrix3.hpp"
+
+
+
+
+#include <float.h>
+unsigned int fp_control_state = _controlfp(_EM_INEXACT, _MCW_EM);
 
 int main() {
+
 
 
     //Create renderer
     MagnumApplication renderer("Renderer");
 
 //Create Camera
-    Doge::Camera cam({0, 2, -300}, {0, 0, 1});
+    Doge::Camera cam({0, 2, -20}, {0, 0, 1});
 
 //Create world
     Doge::SceneGraph scene(new Doge::Empty());

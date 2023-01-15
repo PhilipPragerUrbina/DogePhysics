@@ -15,7 +15,7 @@ namespace Doge {
     public:
         /**
          * Step the simulation forward
-         * @param delta_time Time since last update
+         * @param delta_time Time since last update in seconds
          */
         virtual void step(real delta_time) = 0;
     };

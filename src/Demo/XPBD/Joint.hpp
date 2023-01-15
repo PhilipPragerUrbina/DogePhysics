@@ -8,16 +8,17 @@
 #include "../../DogePhysics/Constraints/ConstraintManager.hpp"
 #include "../../DogePhysics/Constraints/Fixed/DistanceConstraint.hpp"
 #include "Ball.hpp"
+#include "../../DogePhysics/Constraints/Fixed/DistanceConstraintRigid.hpp"
 
 class Joint : public Doge::GameObject{
 private:
-    std::shared_ptr<Doge::DistanceConstraint> constraint;
+    std::shared_ptr<Doge::DistanceConstraintRigid> constraint;
 
 public:
-    Joint(Ball* a, Ball* b, Doge::real length){
-        constraint = std::make_shared<Doge::DistanceConstraint>(a->getParticle(),b->getParticle(),length);
+    Joint(Ball* a, Ball* b, Doge::real length, Doge::real inv_stiffness = 0){
+        constraint = std::make_shared<Doge::DistanceConstraintRigid>(a->getParticle(),b->getParticle(),length,inv_stiffness);
     }
-    std::shared_ptr<Doge::DistanceConstraint> getJoint(){
+    std::shared_ptr<Doge::DistanceConstraintRigid> getJoint(){
         return constraint;
     }
 

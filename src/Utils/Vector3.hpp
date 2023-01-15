@@ -187,6 +187,20 @@ namespace Doge {
             return *this - 2*this->dot(n) * n;
         }
 
+        /**
+         * Get minimum components of either vector
+         */
+        Vector3 min(const Vector3& other) const{
+            return {std::min(other.x,x), std::min(other.y,y), std::min(other.z,z)};
+        }
+
+        /**
+        * Get maximum components of either vector
+        */
+        Vector3 max(const Vector3& other) const{
+            return {std::max(other.x,x), std::max(other.y,y), std::max(other.z,z)};
+        }
+
     };
 
     /**

@@ -18,7 +18,7 @@
 #include <Magnum/Trade/MeshData.h>
 #include <iostream>
 #include <stack>
-
+#include "Magnum/Math/Quaternion.h"
 //Use the magnum namespaces
 using namespace Magnum;
 using namespace Math::Literals;
@@ -120,6 +120,10 @@ public:
     void lookAt(const Doge::Vector3&  eye,const Doge::Vector3&  look_at, const Doge::Vector3&  up) override {
         current_matrix = current_matrix * Matrix4::lookAt({eye.x, eye.y, eye.z},{look_at.x, look_at.y, look_at.z}, {up.x,up.y,up.z}).invertedRigid();
         updateTransform();
+    }
+
+    void rotate(const Doge::Quaternion &rotation) override{
+        current_matrix = current_matrix * Matrix4(Math::Quaternion(Vector3{rotation.i,rotation.j,rotation.k},rotation.r).toMatrix());
     }
 
     void inline popMatrix() override {

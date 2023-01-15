@@ -7,6 +7,7 @@
 #include <vector>
 #include "../../Utils/Vector3.hpp"
 #include "../../Renderer/Renderer.hpp"
+#include "../../Utils/Quaternion.hpp"
 
 namespace Doge {
 
@@ -57,7 +58,7 @@ namespace Doge {
 
         //Fundamental attributes
         Vector3 position;
-        Vector3 rotation;
+        Doge::Quaternion rotation;
         Vector3 scale = 1;
 
         //Material
@@ -84,7 +85,7 @@ namespace Doge {
             //Apply transforms
             renderer->pushMatrix();
             renderer->translate(position);
-          //  renderer->rotate(2,rotation);
+            renderer->rotate(rotation);
           //todo figure out how rotation works
           //todo add pre made transformation matrix to push, rather than recalculating every frame. Can be directly gotten from the physics engine
             renderer->scale(scale);
