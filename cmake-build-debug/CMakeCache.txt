@@ -15,7 +15,7 @@
 ########################
 
 //Path to a program.
-CMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/lib.exe
+CMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/lib.exe
 
 CMAKE_ARCHIVE_OUTPUT_DIRECTORY:PATH=C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/$<CONFIG>/lib
 
@@ -24,7 +24,7 @@ CMAKE_ARCHIVE_OUTPUT_DIRECTORY:PATH=C:/Users/Philip/CLionProjects/DogePhysics/cm
 CMAKE_BUILD_TYPE:STRING=Debug
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe
+CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /EHsc
@@ -45,7 +45,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe
+CMAKE_C_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/cl.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS
@@ -66,7 +66,7 @@ CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG
 CMAKE_C_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
 //Flags used by the linker during all build types.
-CMAKE_EXE_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_EXE_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during DEBUG builds.
 CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
@@ -89,14 +89,14 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/DogePhysics
 CMAKE_LIBRARY_OUTPUT_DIRECTORY:PATH=C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/$<CONFIG>/lib
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/link.exe
+CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/link.exe
 
 //make program
 CMAKE_MAKE_PROGRAM:FILEPATH=C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
-CMAKE_MODULE_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_MODULE_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during the creation of modules during
 // DEBUG builds.
@@ -115,7 +115,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
 //Path to a program.
-CMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x64/mt.exe
+CMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x86/mt.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -127,7 +127,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=DogePhysics
 
 //RC compiler
-CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x64/rc.exe
+CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x86/rc.exe
 
 //Flags for Windows Resource Compiler during all build types.
 CMAKE_RC_FLAGS:STRING=-DWIN32
@@ -148,7 +148,7 @@ CMAKE_RUNTIME_OUTPUT_DIRECTORY:PATH=C:/Users/Philip/CLionProjects/DogePhysics/cm
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
-CMAKE_SHARED_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_SHARED_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during the creation of shared libraries
 // during DEBUG builds.
@@ -175,7 +175,7 @@ CMAKE_SKIP_RPATH:BOOL=NO
 
 //Flags used by the linker during the creation of static libraries
 // during all build types.
-CMAKE_STATIC_LINKER_FLAGS:STRING=/machine:x64
+CMAKE_STATIC_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during the creation of static libraries
 // during DEBUG builds.
@@ -433,9 +433,6 @@ MAGNUM_WITH_WINDOWLESSEGLAPPLICATION:BOOL=OFF
 //Build WindowlessWglApplication library
 MAGNUM_WITH_WINDOWLESSWGLAPPLICATION:BOOL=OFF
 
-//Path to a library.
-Magnum:FILEPATH=Magnum-NOTFOUND
-
 //Dependencies for the target
 MagnumDebugTools_LIB_DEPENDS:STATIC=general;Magnum;general;Corrade::TestSuite;general;MagnumTrade;general;MagnumGL;general;MagnumMeshTools;general;MagnumPrimitives;general;MagnumSceneGraph;general;MagnumShaders;
 
@@ -478,9 +475,6 @@ MagnumTrade_LIB_DEPENDS:STATIC=general;Magnum;general;Corrade::PluginManager;
 //Value Computed by CMake
 Magnum_BINARY_DIR:STATIC=C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum
 
-//The directory containing a CMake configuration file for Magnum.
-Magnum_DIR:PATH=Magnum_DIR-NOTFOUND
-
 //Value Computed by CMake
 Magnum_IS_TOP_LEVEL:STATIC=OFF
 
@@ -496,14 +490,11 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 //GLU library for win32
 OPENGL_glu_LIBRARY:STRING=glu32
 
-//Path to a library.
-PROTOBUF_LIBRARY:FILEPATH=PROTOBUF_LIBRARY-NOTFOUND
-
 //Path to a file.
 SDL2_DLL_DEBUG:FILEPATH=SDL2_DLL_DEBUG-NOTFOUND
 
 //Path to a file.
-SDL2_DLL_RELEASE:FILEPATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x64/SDL2.dll
+SDL2_DLL_RELEASE:FILEPATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x86/SDL2.dll
 
 //Path to a file.
 SDL2_INCLUDE_DIR:PATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/include
@@ -512,10 +503,7 @@ SDL2_INCLUDE_DIR:PATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.
 SDL2_LIBRARY_DEBUG:FILEPATH=SDL2_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-SDL2_LIBRARY_RELEASE:FILEPATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x64/SDL2.lib
-
-//Path to a library.
-filament:FILEPATH=filament-NOTFOUND
+SDL2_LIBRARY_RELEASE:FILEPATH=C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x86/SDL2.lib
 
 
 ########################
@@ -666,7 +654,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_Magnum:INTERNAL=[C:/Users/Philip/CLionProjects/Doge
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
 //Details about finding SDL2
-FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x64/SDL2.lib][C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/include][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x86/SDL2.lib][C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/include][v()]
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MAGNUM_INCLUDE_DIR

@@ -23,6 +23,25 @@ namespace Doge {
     public:
 
         /**
+        * Get world space representation of object space point
+        * @param point Object space
+        * @return World space point
+        */
+        Vector3 unTransformPoint(const Vector3& point) const {
+            return (rotation.getOrientation() * (point*scale)) + position;
+        }
+
+        /**
+         * Get an object space representation of a world space point
+         * @param point World Space
+         * @return Object space point
+         */
+        Vector3 transformPoint(const Vector3& point) const {
+            //todo make rotation faster(not matrix)
+            return (rotation.inverse().getOrientation() * (point - position))/scale;
+        }
+
+        /**
          * Get the scale in meters
          */
         Vector3 getScale() const {

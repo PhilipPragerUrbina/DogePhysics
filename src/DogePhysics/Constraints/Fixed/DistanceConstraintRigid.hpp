@@ -47,14 +47,18 @@ namespace Doge {
 
         void solve(const real &sub_step_delta ) override {
             Vector3 r1= {0,0,0}; //Attachment locations in world coordinates
-            Vector3 r2 = {0.5,0.6,0}; //todo is this global or local. Does it need to be rotated
+            Vector3 r2 = {0,-0.4,0};
 
-            Vector3 n = (b->getPosition() - a->getPosition()).normalized(); //X1 to X2 normalized. Correction direction
-            real C = rest_distance-( (a->getPosition()).distance(b->getPosition()) ); //Constraint attachment point distance. Distance - rest distance
-            //todo Does distance depend on r1 or r2
+            Vector3 r1_world = a->unTransformPoint(r1);
+            Vector3 r2_world = b->unTransformPoint(r2) ;
 
 
-            Vector3 w1 = a->getInverseMass() + a->getInverseIntertia().preMultiply(r1.cross(n)) * (r1.cross(n)); //Compute generalized masses todo check order of operations
+            Vector3 n = (r2_world - r1_world).normalized(); //X1 to X2 normalized. Correction direction
+            real C = rest_distance-( (r1_world).distance(r2_world) ); //Constraint attachment point distance. Distance - rest distance
+
+
+
+            Vector3 w1 = a->getInverseMass() + a->getInverseIntertia().preMultiply(r1.cross(n)) * (r1.cross(n)); //Compute generalized masses
             Vector3 w2 = b->getInverseMass() + b->getInverseIntertia().preMultiply(r2.cross(n)) * (r2.cross(n));
 
             Vector3 lambda = (-C)/(w1+w2); //Compute Lagrange multiplier

@@ -4,9 +4,27 @@
 
 #pragma once
 
+#include "Transformable.hpp"
+#include "Collisions/Colliders/Collider.hpp"
+
 namespace Doge {
 
-    class Collideable {
+    /**
+     * Has a collider
+     */
+    class Collideable : public Transformable{
+    private:
+        std::unique_ptr<Collider> collider;
+    public:
+        Collideable(Collider* collider) : collider(collider){
+
+        }
+
+        //todo doc
+        Collider* getCollider() const {
+            collider->setParentTransform(this);
+            return collider.get();
+        }
 
     };
 

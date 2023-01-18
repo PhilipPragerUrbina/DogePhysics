@@ -26,9 +26,9 @@ private:
     Doge::SimpleDrag drag{0.55};
 public:
     Ball(Doge::real mass, Doge::Vector3 position){
-        particle = std::make_shared<Doge::RigidBody> (mass, getCuboidTensor(mass,1));
+        particle = std::make_shared<Doge::RigidBody> (mass, getCuboidTensor(mass,{1,1,1}));
         particle->setPosition(position);
-        particle->applyForce({0,-40,0});
+       //particle->applyForce({0,-40,0});
     }
 
     std::shared_ptr<Doge::RigidBody> getParticle(){

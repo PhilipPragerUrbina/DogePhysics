@@ -114,20 +114,12 @@ namespace Doge {
         }
 
 
-        /**
-         * Rotate the quaternions by a vector
-         * @param vector Vector containing change in angles(radians)
-         */
-        void rotate(const Vector3& vector)
-        {
-            Quaternion q(vector.x, vector.y, vector.z,1);
-            *this *= q;
-        }
+
 
         /**
         * Get corresponding rotation matrix
         */
-        Matrix3 setOrientation() const
+        Matrix3 getOrientation() const
         {
             Matrix3 out{};
             out.data[0][0] = 1 - (2*j*j + 2*k*k);

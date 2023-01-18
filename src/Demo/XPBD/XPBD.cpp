@@ -13,15 +13,13 @@ World* world = new World;
 scene->addObject(world);
 
 
-    Ball* last_ball = new Ball(100000,{0,0,0});
-        Doge::Quaternion rot = last_ball->getParticle()->getRotation();
-        rot.rotate({0.5,0,0});
-        last_ball->getParticle()->setRotation(rot);
+    Ball* last_ball = new Ball(10,{0,0,0});
+
     Ball* first_ball = last_ball;
     world->addBall(last_ball);
-    for (int i = 1; i < 8; ++i) {
-        Ball* new_ball = new Ball(1, {(Doge::real)i*3,0,0} );
-        Joint* new_joint = new Joint(last_ball,new_ball,3,0); //todo something is propagating nans
+    for (int i = 1; i < 2; ++i) {
+        Ball* new_ball = new Ball(10, {(Doge::real)i*5,0,0} );
+        Joint* new_joint = new Joint(last_ball,new_ball,5,0); //todo something is propagating nans
         world->addBall(new_ball);
         world->addJoint(new_joint);
         last_ball = new_ball;

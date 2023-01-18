@@ -17,7 +17,6 @@ unsigned int fp_control_state = _controlfp(_EM_INEXACT, _MCW_EM);
 int main() {
 
 
-
     //Create renderer
     MagnumApplication renderer("Renderer");
 
@@ -32,8 +31,13 @@ int main() {
 
     createSceneXPBD(&scene);
 
-    renderer.setUpdateCallback([&cam, &scene](Doge::real delta_time) {
-        scene.update(delta_time); //update scene
+    bool first = false;
+    renderer.setUpdateCallback([&cam, &scene, &first](Doge::real delta_time) {
+        if(!first){
+            scene.update(delta_time); //update scene
+          //  first = true;
+        }
+
         //update camera
         //cam.setDirection(particle.getPosition()-cam.getPosition());
     });
