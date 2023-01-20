@@ -1,27 +1,4 @@
 "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\Philip\CLionProjects\DogePhysics -B C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug
--- The C compiler identification is MSVC 19.29.30147.0
--- The CXX compiler identification is MSVC 19.29.30147.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/cl.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/cl.exe - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
-CMake Warning at external/corrade/CMakeLists.txt:430 (message):
-  MSVC 2019+ detected, automatically enabling CORRADE_MSVC_COMPATIBILITY
-  which may cause some features to not be available.  You can disable this
-  option if you pass /permissive- to the compiler to enable a
-  standards-conforming mode.
-
-
--- The LIB_SUFFIX variable is not defined. It will be autodetected now.
--- You can set it manually with -DLIB_SUFFIX=<value> (64 for example).
--- LIB_SUFFIX autodetected as '', libraries will be installed into C:/Program Files (x86)/DogePhysics/lib
--- Found Git: C:/Program Files/Git/cmd/git.exe (found version "2.32.0.windows.2") 
 CMake Warning at external/corrade/src/Corrade/CMakeLists.txt:75 (message):
   Can't match Git version: fatal: not a git repository:
   C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/../../../.git/modules/external/modules/corrade
@@ -30,7 +7,6 @@ CMake Warning at external/corrade/src/Corrade/CMakeLists.txt:75 (message):
 
 
 -- Found Corrade: C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src  found components: Containers rc Utility 
--- Found OpenGL: opengl32   
 CMake Warning at external/magnum/src/Magnum/CMakeLists.txt:68 (message):
   Can't match Git version: fatal: not a git repository:
   C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/../.git/modules/magnum
@@ -38,10 +14,8 @@ CMake Warning at external/magnum/src/Magnum/CMakeLists.txt:68 (message):
 
 
 
--- Found SDL2: C:/Users/Philip/CLionProjects/DogePhysics/external/SDL2-2.24.2/lib/x86/SDL2.lib  
 -- Found Corrade: C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src  found components: Containers rc Utility Main TestSuite 
 -- Found Corrade: C:/Users/Philip/CLionProjects/DogePhysics/external/corrade/src  found components: Containers rc Utility PluginManager 
--- Found Magnum: C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src  found components: Trade GL MeshTools Primitives Shaders Sdl2Application 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug

@@ -56,6 +56,12 @@ namespace Doge {
             return objects[idx].get();
         }
 
+        //todo doc
+        std::vector<std::shared_ptr<ObjectType>>* getObjects(){
+            return &objects;
+        }
+
+
     };
 
 } // Doge

@@ -22,7 +22,9 @@ namespace Doge {
                 if(body1 == body2){
                     continue;
                 }
-            //check collide and add
+            if(body1->getCollider()->coarseCollision(body2->getCollider())){
+                potential_collisions.emplace_back(body1,body2);
+            }
 
             }
         }
@@ -36,8 +38,21 @@ namespace Doge {
         }
 
         std::vector<CollisionData> checkCollisions() override {
-            //loop thorugh potential
-            return std::vector<CollisionData>();
+            std::vector<CollisionData> out;
+            for (PotentialCollision potential_collision : potential_collisions) {
+                CollisionData data;
+                if(potential_collision.a->getCollider()->collide(potential_collision.b->getCollider(),data)){
+                    data.a = potential_collision.a; //todo make sure order is correct
+                    data.b = potential_collision.b;
+                    out.push_back(data);
+                }
+            }
+
+            return out;
+        }
+
+        std::vector<std::shared_ptr<Collideable>> * getContents() override {
+            return getObjects();
         }
 
     };

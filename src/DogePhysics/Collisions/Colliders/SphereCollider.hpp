@@ -39,17 +39,17 @@ namespace Doge {
         }
 
         bool collide(const Collider *collider, CollisionData &data) const override {
-            return collider->collide(this,data);
+            return collider->collide(*this,data);
         }
 
         bool collide(const SphereCollider &collider, CollisionData &data) const override {
             if(! sphere.checkOverlap(collider.sphere)){
                 return false;
             }
-            Vector3 direction = (sphere.position - collider.sphere.position).normalized();
+            Vector3 direction = (sphere.position - collider.sphere.position).normalized(); //collider to this
             data.position = collider.sphere.position + direction * collider.sphere.radius;
             data.normal = direction;
-            data.depth = sphere.radius + collider.sphere.radius - collider.sphere.position.distance(sphere.position); //todo clean up and optimize
+            data.depth = (sphere.radius + collider.sphere.radius) - collider.sphere.position.distance(sphere.position); //todo clean up and optimize
 
             return true;
         }

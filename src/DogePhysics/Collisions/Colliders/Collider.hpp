@@ -6,12 +6,16 @@
 
 #include "../../../Utils/BoundingSphere.hpp"
 #include "../../Transformable.hpp"
-#include "BoxCollider.hpp"
-#include "SphereCollider.hpp"
-#include "../../Collideable.hpp"
+
+
+
+
 
 namespace Doge {
-
+    //predeclare
+    class Collideable;
+    class BoxCollider;
+    class SphereCollider;
 
     /**
      * Data from collision
@@ -20,7 +24,8 @@ namespace Doge {
         Vector3 position; //Position of hit
         Vector3 normal; //Normal of hit
         real depth; //Penetration depth
-        Collideable* a,b; //Bodies that collided 1 and 2 respectively. To be assigned by collision layer, not the collision check.
+        Collideable* a;
+        Collideable* b; //Bodies that collided 1 and 2 respectively. To be assigned by collision layer, not the collision check.
         //todo calculate r1 and r2 here
         //todo normal is in what direction
     };
@@ -56,7 +61,7 @@ namespace Doge {
          * @param other Other to collide to
          * @return True if detected.
          */
-        bool coarseCollision(const Collider* other){
+        bool coarseCollision(const Collider* other) const{
             return other->getBounding().checkOverlap(getBounding());
         }
 
@@ -93,9 +98,9 @@ namespace Doge {
      * Potential collision helper struct
      */
     struct PotentialCollision {
-        PotentialCollision(Collider* a, Collider* b) : a(a), b(b){}
-        Collider* a;
-        Collider* b;
+        PotentialCollision(Collideable* a, Collideable* b) : a(a), b(b){}
+        Collideable* a;
+        Collideable* b;
     };
 
 } // Doge

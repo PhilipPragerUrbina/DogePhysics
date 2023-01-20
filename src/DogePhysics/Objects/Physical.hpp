@@ -12,7 +12,7 @@ namespace Doge {
      * Has physical properties
      * Can sustain forces
      */
-    class Physical : public Transformable{
+    class Physical : public virtual Transformable{
     private:
         real inverse_mass; //1/mass
     protected:

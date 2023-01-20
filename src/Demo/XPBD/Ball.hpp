@@ -11,14 +11,7 @@
 #include "../../DogePhysics/Objects/XPBD/ParticleSystems/Particles/ConstrainableParticle.hpp"
 #include "../../DogePhysics/ForceCalculators/SimpleDrag.hpp"
 #include "../../DogePhysics/Objects/XPBD/RigidBody.hpp"
-
-Doge::Matrix3 getCuboidTensor(Doge::real mass, Doge::Vector3 dim){
-    Doge::Matrix3 mat{};
-    mat.data[0][0]= (1.0/12.0)*mass * ((dim.y*dim.y)+(dim.z*dim.z));
-    mat.data[1][1]= (1.0/12.0)*mass * ((dim.x*dim.x)+(dim.z*dim.z));
-    mat.data[2][2]= (1.0/12.0)*mass * ((dim.x*dim.x)+(dim.y*dim.y));
-    return mat;
-}
+#include "../../DogePhysics/Collisions/Colliders/SphereCollider.hpp"
 
 class Ball : public Doge::GameObject{
 private:
@@ -26,9 +19,9 @@ private:
     Doge::SimpleDrag drag{0.55};
 public:
     Ball(Doge::real mass, Doge::Vector3 position){
-        particle = std::make_shared<Doge::RigidBody> (mass, getCuboidTensor(mass,{1,1,1}));
+        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::SphereCollider(1) );
         particle->setPosition(position);
-       //particle->applyForce({0,-40,0});
+       //particle->applyForce({0,-1,0});
     }
 
     std::shared_ptr<Doge::RigidBody> getParticle(){
@@ -40,7 +33,7 @@ protected:
 
 
     void render(Doge::Renderer *renderer) override {
-        renderer->drawCube();
+        renderer->drawSphere();
 
     }
 
@@ -50,6 +43,7 @@ protected:
      //   drag.apply(particle.get());
         position = particle->getPosition();
         rotation = particle->getRotation();
+
 
     }
 

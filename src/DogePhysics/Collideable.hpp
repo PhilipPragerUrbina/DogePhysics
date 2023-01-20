@@ -12,7 +12,7 @@ namespace Doge {
     /**
      * Has a collider
      */
-    class Collideable : public Transformable{
+    class Collideable : public virtual Transformable{
     private:
         std::unique_ptr<Collider> collider;
     public:

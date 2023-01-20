@@ -8,11 +8,12 @@
 #include "Demo/XPBD/XPBD.cpp"
 #include "Utils/Matrix3.hpp"
 
-
+#include "DogePhysics/Collisions/Layers/CollisionLayer.hpp"
 
 
 #include <float.h>
-unsigned int fp_control_state = _controlfp(_EM_INEXACT, _MCW_EM);
+//check for nans(also does inexact, may not be actual problem like overflow or divide by 0)
+//unsigned int fp_control_state = _controlfp(_EM_INEXACT, _MCW_EM);
 
 int main() {
 
@@ -34,7 +35,7 @@ int main() {
     bool first = false;
     renderer.setUpdateCallback([&cam, &scene, &first](Doge::real delta_time) {
         if(!first){
-            scene.update(delta_time); //update scene
+            scene.update(0.01); //update scene
           //  first = true;
         }
 

@@ -32,6 +32,9 @@ namespace Doge {
          * @return List of collision data
          */
         virtual std::vector<CollisionData> checkCollisions() = 0;
+        //todo doc
+        //todo isStatic in collidable
+        virtual std::vector<std::shared_ptr<Collideable>> * getContents() = 0;
 
     };
 

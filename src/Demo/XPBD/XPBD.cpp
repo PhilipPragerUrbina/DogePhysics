@@ -12,7 +12,25 @@ void createSceneXPBD(Doge::SceneGraph* scene){
 World* world = new World;
 scene->addObject(world);
 
+Ball* ball = new  Ball(100,{0,0,0});
+ball->getParticle()->setVelocity({1,10,5});
+//Newton cradle
+//ball->getParticle()->setVelocity({0,10,0});
+world->addBall(ball);
 
+//todo newtons cradle
+//todo why so bouncy, should be inelastic
+
+
+Ball* ball2 = new  Ball(100,{0,3,0});
+world->addBall(ball2);
+    Ball* ball3 = new  Ball(100,{0,5,0});
+    world->addBall(ball3);
+
+    Ball* ball4 = new  Ball(100,{0,7,0});
+    world->addBall(ball4);
+
+/**
     Ball* last_ball = new Ball(10,{0,0,0});
 
     Ball* first_ball = last_ball;
@@ -23,7 +41,7 @@ scene->addObject(world);
         world->addBall(new_ball);
         world->addJoint(new_joint);
         last_ball = new_ball;
-    }
+    }**/
 
     //last_ball->getParticle()->setMass(1000); //heavy end
 

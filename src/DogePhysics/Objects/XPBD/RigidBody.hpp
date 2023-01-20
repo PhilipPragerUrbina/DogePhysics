@@ -5,6 +5,7 @@
 #pragma once
 
 #include "Constrainable.hpp"
+#include "../../Collideable.hpp"
 
 namespace Doge {
     //todo world vs object space
@@ -12,7 +13,7 @@ namespace Doge {
     /**
      * A physical object with rotation
      */
-    class RigidBody : public Constrainable{
+    class RigidBody : public Constrainable, public Collideable{
     private:
         Quaternion prev_rotation; //Last rotation value
         Vector3 prev_position; //Last position value
@@ -25,8 +26,8 @@ namespace Doge {
          * @param mass Mass todo units
          * @param intertia_tensor Intertia
          */
-        RigidBody(real mass, const Matrix3& intertia_tensor) : Constrainable(mass) {
-            setIntertiaTensor(intertia_tensor);
+        RigidBody(real mass, Collider* rigid_collider) : Constrainable(mass) , Collideable(rigid_collider){
+            setIntertiaTensor(rigid_collider->createInertiaTensor(mass));
         }
 
         /**
@@ -44,6 +45,11 @@ namespace Doge {
             return inverse_intertia;
         }
 
+        //todo clean up and doc
+        void setVelocity(Vector3 v){
+            velocity = v;
+        }
+
         //todo clear accumulators
         //todo apply rotational forces
 
@@ -54,7 +60,8 @@ namespace Doge {
             prev_position = position; //Store last position
             prev_rotation = rotation; //Store last rotation
 
-            velocity += sub_step_delta * net_force * getInverseMass(); //update velocity with external forces
+            //todo add this back in
+        //    velocity += sub_step_delta * net_force * getInverseMass(); //update velocity with external forces
             //todo add external forces to angular velocity using inertia tensor
 
             position += sub_step_delta * velocity; //update position

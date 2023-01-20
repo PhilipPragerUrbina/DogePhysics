@@ -19,7 +19,7 @@ find_package(Magnum REQUIRED
         Trade
         Sdl2Application)
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
-add_executable(DogePhysics src/main.cpp)
+add_executable(DogePhysics src/main.cpp src/DogePhysics/Collisions/Colliders/Collider.hpp)
 target_link_libraries(DogePhysics PRIVATE
         Corrade::Main
         Magnum::Application
