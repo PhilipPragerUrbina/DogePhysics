@@ -12,14 +12,17 @@
 #include "../../DogePhysics/ForceCalculators/SimpleDrag.hpp"
 #include "../../DogePhysics/Objects/XPBD/RigidBody.hpp"
 #include "../../DogePhysics/Collisions/Colliders/SphereCollider.hpp"
-
+#include "../../DogePhysics/Collisions/Colliders/BoxCollider.hpp"
 class Ball : public Doge::GameObject{
 private:
     std::shared_ptr<Doge::RigidBody> particle;
     Doge::SimpleDrag drag{0.55};
+    bool action;
+    int amount = 0;
 public:
-    Ball(Doge::real mass, Doge::Vector3 position){
-        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::SphereCollider(1) );
+    Ball(Doge::real mass, Doge::Vector3 position, bool move = false){
+        action = move;
+        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::SphereCollider(1) );//todo box collider
         particle->setPosition(position);
        //particle->applyForce({0,-1,0});
     }
@@ -43,6 +46,14 @@ protected:
      //   drag.apply(particle.get());
         position = particle->getPosition();
         rotation = particle->getRotation();
+
+        if(action){
+            amount++;
+            if(amount > 1000){
+                particle->setPosition(particle->getPosition() - Doge::Vector3{0.1,0,0});
+                action = false;
+            }
+        }
 
 
     }

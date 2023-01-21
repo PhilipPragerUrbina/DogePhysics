@@ -12,8 +12,31 @@ void createSceneXPBD(Doge::SceneGraph* scene){
 World* world = new World;
 scene->addObject(world);
 
-Ball* ball = new  Ball(100,{0,0,0});
-ball->getParticle()->setVelocity({1,10,5});
+
+    Ball* ball = new  Ball(1000000,{0,-3,0}, true);
+    world->addBall(ball);
+    //todo restitution and proper collision handling with velocities
+    //todo get proper box collisions
+    //todo make sure rotations are working
+    //todo clean up
+    //todo UX
+    //https://matthias-research.github.io/pages/publications/PBDBodies.pdf
+
+    //todo upper balls not moving? seem to have more mass? I think its float precision. Changes too miniscule to allow the larger numbers to build up speed?
+    //todo two falling balls get stuck together in collision.
+    //can handle a thousand
+    for (int i = 0; i < 10; ++i) {
+        Ball* ball2 = new  Ball(10,{0,(Doge::real)i*3.0f,0});
+        ball2->getParticle()->applyForce({0,-10,0});
+        ball2->getParticle()->setVelocity({0,-1,0});
+        world->addBall(ball2);
+    }
+
+
+
+/**
+Ball* ball = new  Ball(100,{0,-2,0});
+ball->getParticle()->setVelocity({1,10,2});
 //Newton cradle
 //ball->getParticle()->setVelocity({0,10,0});
 world->addBall(ball);
@@ -28,7 +51,7 @@ world->addBall(ball2);
     world->addBall(ball3);
 
     Ball* ball4 = new  Ball(100,{0,7,0});
-    world->addBall(ball4);
+    world->addBall(ball4);**/
 
 /**
     Ball* last_ball = new Ball(10,{0,0,0});

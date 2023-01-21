@@ -14,7 +14,7 @@
 
 class World : public Doge::GameObject{
 public:
-    Doge::ConstraintManager manager{10};
+    Doge::ConstraintManager manager{15};
     std::shared_ptr<Doge::CollisionLayer> layer;
     std::shared_ptr<Doge::CollisionSolver> solver;
 
@@ -29,7 +29,8 @@ public:
 
     World(){
         layer = std::shared_ptr<Doge::CollisionLayer>(new Doge::SimpleLayer());
-        solver = std::shared_ptr<Doge::CollisionSolver>(new Doge::CollisionSolver(layer,0.00001));
+        solver = std::shared_ptr<Doge::CollisionSolver>(new Doge::CollisionSolver(layer,0));
+        //todo boxes with rigid constraints
         manager.add(solver);
     }
 

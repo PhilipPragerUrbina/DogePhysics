@@ -42,7 +42,7 @@ namespace Doge {
          * This should be called by collidable before collision detection
          * @param transformable Transform of object this collider is attached to
          */
-        virtual void setParentTransform(const Transformable* parent_transform) = 0; //todo is pointer or value
+        virtual void setParentTransform( Transformable* parent_transform) = 0; //todo is pointer or value
 
         /**
          * Get the bounding sphere of the collider in world space

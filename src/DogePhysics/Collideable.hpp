@@ -22,7 +22,7 @@ namespace Doge {
 
         //todo doc
         Collider* getCollider() const {
-            collider->setParentTransform(this);
+            collider->setParentTransform((Transformable*)this);
             return collider.get();
         }
 

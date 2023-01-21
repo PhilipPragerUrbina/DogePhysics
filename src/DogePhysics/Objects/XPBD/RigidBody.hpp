@@ -60,8 +60,8 @@ namespace Doge {
             prev_position = position; //Store last position
             prev_rotation = rotation; //Store last rotation
 
-            //todo add this back in
-        //    velocity += sub_step_delta * net_force * getInverseMass(); //update velocity with external forces
+
+        velocity += sub_step_delta * net_force * getInverseMass(); //update velocity with external forces
             //todo add external forces to angular velocity using inertia tensor
 
             position += sub_step_delta * velocity; //update position

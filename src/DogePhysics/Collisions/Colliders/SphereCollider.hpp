@@ -22,7 +22,7 @@ namespace Doge {
 
         }
 
-        void setParentTransform(const Transformable *parent_transform) override {
+        void setParentTransform( Transformable *parent_transform) override {
             sphere.position = parent_transform->getPosition() + offset;
         }
 
@@ -49,6 +49,7 @@ namespace Doge {
             Vector3 direction = (sphere.position - collider.sphere.position).normalized(); //collider to this
             data.position = collider.sphere.position + direction * collider.sphere.radius;
             data.normal = direction;
+            //positive
             data.depth = (sphere.radius + collider.sphere.radius) - collider.sphere.position.distance(sphere.position); //todo clean up and optimize
 
             return true;

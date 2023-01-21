@@ -36,14 +36,14 @@ namespace Doge {
 
 
         }
-
+        std::vector<CollisionData> data;
         void solve(const real &sub_step_delta) override {
-            std::vector<CollisionData> data = layer->checkCollisions();
+            data = layer->checkCollisions();
             for (const CollisionData& collision : data) {
                 RigidBody* a = (RigidBody *)(collision.a);
                 RigidBody* b = (RigidBody *)(collision.b);
 
-                Vector3 r1= a->transformPoint(collision.position)  ;
+                Vector3 r1= a->transformPoint(collision.position)  ; //todo are these the two separate contact points, or just one of them. Position vs r1, r2
                 Vector3 r2 = b->transformPoint(collision.position);
 
 
@@ -74,6 +74,33 @@ namespace Doge {
                 auto* rigid_body = (RigidBody *)(collideable.get());
                 rigid_body->afterSolve(sub_step_delta,sub_step_idx);
             }
+
+
+
+            //vecloty solve
+            //it is a little early but it is fine, since it does not really care too much(Only updates velcotites of these objects which have already been updated)
+            //If there are problems mabye move it to seperate loop or try to re-check contacts collisions
+            for (const CollisionData& collision : data) {
+                RigidBody *a = (RigidBody *) (collision.a);
+                RigidBody *b = (RigidBody *) (collision.b);
+
+                //todo friction and two separate vn and vn hat
+                Vector3 vn1 = collision.normal * a->getVelocity();
+                Vector3 vn2 = collision.normal * b->getVelocity();
+
+                real e = 0.01; //Restitution coefficient
+
+                //todo e=0 jittering check
+                Vector3 delta_v1 = collision.normal*(-vn1 +(-e*vn1).min(0));
+                Vector3 delta_v2 = collision.normal*(-vn2 +(-e*vn2).min(0));
+
+                a->setVelocity(a->getVelocity() + delta_v1);
+                b->setVelocity(b->getVelocity() + delta_v2);
+
+
+
+            }
+
         }
 
     };
