@@ -71,6 +71,7 @@ class BoxCollider : public Collider{
     }
 
     bool collide(const BoxCollider &collider, CollisionData &data) const override {
+        return false;
         Vector3 closest_a = getClosestPoint(collider.transform->getPosition());
         Vector3 closest_b = collider.getClosestPoint(transform->getPosition());
         if(!inBox(closest_b) && !inBox(closest_a) ){
@@ -80,7 +81,7 @@ class BoxCollider : public Collider{
         data.normal = -(closest_a - closest_b).normalized();
         data.depth = closest_a.distance(closest_b);
 
-        data.position = closest_a;
+      //  data.position = closest_a;
 
 
         return true;

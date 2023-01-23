@@ -13,24 +13,30 @@ World* world = new World;
 scene->addObject(world);
 
 
-    Ball* ball = new  Ball(1000000,{0,-3,0}, true);
+    Ball* ball = new  Ball(1000000,{0,-3,0}, 5,true);
     world->addBall(ball);
-    //todo restitution and proper collision handling with velocities
+
     //todo get proper box collisions
     //todo make sure rotations are working
     //todo clean up
     //todo UX
     //https://matthias-research.github.io/pages/publications/PBDBodies.pdf
 
-    //todo upper balls not moving? seem to have more mass? I think its float precision. Changes too miniscule to allow the larger numbers to build up speed?
+    //todo upper balls not moving? seem to have more mass? I think its float precision. Changes too miniscule to allow the larger numbers to build up speed? Only happens with float?
     //todo two falling balls get stuck together in collision.
     //can handle a thousand
-    for (int i = 0; i < 10; ++i) {
-        Ball* ball2 = new  Ball(10,{0,(Doge::real)i*3.0f,0});
-        ball2->getParticle()->applyForce({0,-10,0});
-        ball2->getParticle()->setVelocity({0,-1,0});
+    for (int i = 0; i < 20; ++i) {
+        Ball* ball2 = new  Ball(1,{0,(Doge::real)i*3.0f*((i+2)/10.0),0},(double)(i+2)/10);
+        ball2->getParticle()->setAngularVelocity({0,0,0.2});
+        //ball2->getParticle()->applyForce({0,-50,0});
+
         world->addBall(ball2);
     }
+
+
+    //todo review the r1 and r2
+    //todo Try angular velocity
+    //todo do box collision detection tutorial
 
 
 

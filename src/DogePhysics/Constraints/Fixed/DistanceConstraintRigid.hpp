@@ -37,7 +37,7 @@ namespace Doge {
          */
         DistanceConstraintRigid( std::shared_ptr<RigidBody> a, std::shared_ptr<RigidBody> b , const real rest_distance, const real inverse_stiffness = 0) : a(a),b(b), rest_distance(rest_distance), inverse_stiffness(inverse_stiffness){};
 
-        void init() override {} //no init
+        void init(double delta_time) override {} //no init
 
         void beforeSolve(const real &sub_step_delta, int sub_step_idx) override {
             //update objects

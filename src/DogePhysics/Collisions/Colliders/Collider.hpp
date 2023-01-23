@@ -21,7 +21,7 @@ namespace Doge {
      * Data from collision
      */
     struct CollisionData{
-        Vector3 position; //Position of hit
+        Vector3 r1,r2; //Position of hit
         Vector3 normal; //Normal of hit
         real depth; //Penetration depth
         Collideable* a;
@@ -35,6 +35,7 @@ namespace Doge {
      */
     class Collider {
     public:
+        Vector3 velocity;
 
         /**
          * Update world space transform of collider to reflect object transform.
@@ -60,10 +61,17 @@ namespace Doge {
          * Perform a coarse bounding collision check
          * @param other Other to collide to
          * @return True if detected.
+         * todo doc
          */
-        bool coarseCollision(const Collider* other) const{
-            return other->getBounding().checkOverlap(getBounding());
+        bool coarseCollision(const Collider* other, real delta_time, real k =1) const{
+            BoundingSphere a = other->getBounding(); //todo doc accounting for movement
+            a.radius += other->velocity.length() * k * delta_time;
+            BoundingSphere b = getBounding();
+            b.radius += velocity.length() * k * delta_time;
+            return a.checkOverlap(b);
         }
+
+
 
         /**
          * Main Collision detection method, uses polymorphism trick to call the specific overloaded collision detection methods.

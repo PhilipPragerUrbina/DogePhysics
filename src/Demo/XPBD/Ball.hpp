@@ -19,10 +19,12 @@ private:
     Doge::SimpleDrag drag{0.55};
     bool action;
     int amount = 0;
+    double size;
 public:
-    Ball(Doge::real mass, Doge::Vector3 position, bool move = false){
+    Ball(Doge::real mass, Doge::Vector3 position,double s, bool move = false){
+        size = s;
         action = move;
-        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::SphereCollider(1) );//todo box collider
+        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::BoxCollider(size) );//todo box collider
         particle->setPosition(position);
        //particle->applyForce({0,-1,0});
     }
@@ -36,7 +38,9 @@ protected:
 
 
     void render(Doge::Renderer *renderer) override {
+        renderer->scale(size);
         renderer->drawSphere();
+        renderer->drawCube();
 
     }
 
@@ -47,9 +51,10 @@ protected:
         position = particle->getPosition();
         rotation = particle->getRotation();
 
+
         if(action){
             amount++;
-            if(amount > 1000){
+            if(amount > 1){
                 particle->setPosition(particle->getPosition() - Doge::Vector3{0.1,0,0});
                 action = false;
             }

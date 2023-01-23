@@ -15,6 +15,8 @@ namespace Doge {
      */
     class RigidBody : public Constrainable, public Collideable{
     private:
+        Vector3 last_velocity; //Pre update velocities
+        Vector3 last_angular_velocity; //Pre update velocities
         Quaternion prev_rotation; //Last rotation value
         Vector3 prev_position; //Last position value
         Vector3 angular_velocity; //Change in rotation over time
@@ -45,6 +47,26 @@ namespace Doge {
             return inverse_intertia;
         }
 
+        //todo doc
+        Vector3 getPreUpdateVelocities() const {
+            return last_velocity;
+        }
+        //todo doc
+        Vector3 getPreUpdateAngularVelocities() const {
+            return last_angular_velocity;
+        }
+
+        //todo doc
+        Vector3 getAngularVelocity() const {
+            return angular_velocity;
+        }
+
+        //todo doc
+        void setAngularVelocity(const Vector3& new_angular_velocity)  {
+             angular_velocity=new_angular_velocity;
+        }
+
+
         //todo clean up and doc
         void setVelocity(Vector3 v){
             velocity = v;
@@ -68,24 +90,31 @@ namespace Doge {
             rotation.addVector(angular_velocity,sub_step_delta); //Update rotation(Does automatic conversion)
             rotation.normalize();
             //todo nicer add vector
+
+            setColliderVelocity(velocity); //todo move to init with forceclearaccumulator and document
         }
 
         void afterSolveIntegrate(const real &sub_step_delta) override {
 
             //Corresponds to second "for n particles and bodies" loop
 
+            last_velocity = velocity;  //save pre update velocities
+            last_angular_velocity = angular_velocity;
+
             velocity = (position - prev_position)/sub_step_delta; //Update velocity after constrains
 
             //Get rotation delta
             Quaternion rotation_delta = rotation;
             rotation_delta *= prev_rotation.inverse();
-
-            angular_velocity = 2.0 * Vector3{rotation_delta.i, rotation_delta.j, rotation_delta.k} / sub_step_delta; //Update angular velocity
+            angular_velocity =rotation_delta.getAngleAxis()/sub_step_delta; //Update angular velocity
+            std::cout << angular_velocity << "\n";
             //Set direction of velocity
             angular_velocity = rotation_delta.r >= 0 ? angular_velocity : -angular_velocity;
 
 
                     //todo variable names to equation names
+
+            setColliderVelocity(velocity); //todo move to init with forceclearaccumulator and document
 
         }
 

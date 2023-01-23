@@ -17,14 +17,15 @@ namespace Doge {
          * @return List of collision data
          */
         std::vector<CollisionData> fullCheck(){
-            findPotentialCollisions();
+            findPotentialCollisions(0); //todo doc why delta time is 0 here
             return checkCollisions();
         }
 
         /**
          * Only find coarse potential collisions, not do actual check.
+         * todo doc
          */
-        virtual void findPotentialCollisions() = 0;
+        virtual void findPotentialCollisions(double delta_time) = 0;
 
         /**
          * Do actual collision check

@@ -10,6 +10,6 @@ namespace Doge {
      * A floating point number
      * Standard c++ math operations will be used on it
      */
-    typedef float real;
+    typedef double real;
 
 } // Doge

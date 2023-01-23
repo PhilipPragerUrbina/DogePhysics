@@ -20,10 +20,10 @@ namespace Doge {
 
         }
 
-        void init() override {
+        void init(double delta_time) override {
 
 
-            layer->findPotentialCollisions();
+            layer->findPotentialCollisions(delta_time);
 
         }
 
@@ -43,8 +43,8 @@ namespace Doge {
                 RigidBody* a = (RigidBody *)(collision.a);
                 RigidBody* b = (RigidBody *)(collision.b);
 
-                Vector3 r1= a->transformPoint(collision.position)  ; //todo are these the two separate contact points, or just one of them. Position vs r1, r2
-                Vector3 r2 = b->transformPoint(collision.position);
+                Vector3 r1= a->transformPoint(collision.r2)  ; //it is a single contact point
+                Vector3 r2 = b->transformPoint(collision.r2); //todo doc what data r1 and r2 represent
 
 
                 Vector3 n = collision.normal;
@@ -77,25 +77,55 @@ namespace Doge {
 
 
 
-            //vecloty solve
+            //velocity solve
             //it is a little early but it is fine, since it does not really care too much(Only updates velcotites of these objects which have already been updated)
             //If there are problems mabye move it to seperate loop or try to re-check contacts collisions
             for (const CollisionData& collision : data) {
+                //Get bodies
                 RigidBody *a = (RigidBody *) (collision.a);
                 RigidBody *b = (RigidBody *) (collision.b);
 
-                //todo friction and two separate vn and vn hat
-                Vector3 vn1 = collision.normal * a->getVelocity();
-                Vector3 vn2 = collision.normal * b->getVelocity();
+                //todo still some slight funkiness with r1 and r2. Is it just r2 and r2. Is it r1 and r2. is it r2 and r1
 
+                //Get r1 and r2
+                Vector3 r1= a->transformPoint(collision.r2)  ;
+                Vector3 r2 = b->transformPoint(collision.r2);
+                //Get collision normal
+                Vector3 n = collision.normal; //todo swap if not working properly
+                //get velocities todo optimize
+                Vector3 v1 = a->getVelocity(); //Just for readability
+                Vector3 v2 = b->getVelocity();
+                Vector3 w1 = a->getAngularVelocity();
+                Vector3 w2 = b->getAngularVelocity();
+                Vector3 wmass1 = a->getInverseMass() + a->getInverseIntertia().preMultiply(r1.cross(n)) * (r1.cross(n)); //Compute generalized masses
+                Vector3 wmass2 = b->getInverseMass() + b->getInverseIntertia().preMultiply(r2.cross(n)) * (r2.cross(n)); //todo optimize(Computed twice)
+                //Compute normal and tangential velocities
+                Vector3 v = (v1+w1.cross(r1))-(v2+w2.cross(r2));
+                Vector3 vn = n * v;
+                Vector3 vt = v - n*vn;
+                //Compute pre update
+                Vector3 vhat = (a->getPreUpdateVelocities() + a->getPreUpdateAngularVelocities().cross(r1)) - (b->getPreUpdateVelocities() + b->getPreUpdateAngularVelocities().cross(r2));
+                Vector3 vnhat = n * vhat;
+
+                //todo put friction and restitution variables as properties
+
+                //Compute friction force
+                //todo friction force
+                //Vector3 vdelta = -vt.normalized()*fmin(0, vt.length());
+
+                //todo damping
+
+                //Apply restitution
                 real e = 0.01; //Restitution coefficient
+                Vector3 vdelta = n*(-vn+(-e*vnhat).min(0));
+                //todo jitter check
 
-                //todo e=0 jittering check
-                Vector3 delta_v1 = collision.normal*(-vn1 +(-e*vn1).min(0));
-                Vector3 delta_v2 = collision.normal*(-vn2 +(-e*vn2).min(0));
+                Vector3 p = vdelta/(wmass1+wmass2);
+                a->setVelocity(a->getVelocity() + p * a->getInverseMass());
+                b->setVelocity(b->getVelocity() - p * b->getInverseMass());
 
-                a->setVelocity(a->getVelocity() + delta_v1);
-                b->setVelocity(b->getVelocity() + delta_v2);
+                a->setAngularVelocity(a->getAngularVelocity() + a->getInverseIntertia() * (r1.cross(p)));
+                b->setAngularVelocity(b->getAngularVelocity() - b->getInverseIntertia() * (r2.cross(p)));
 
 
 

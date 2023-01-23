@@ -32,9 +32,14 @@ namespace Doge {
         Quaternion(real i, real j, real k, real r) : i(i), j(j), k(k), r(r){}
 
         /**
-         * Get magnitude or norm of quaternion
+         * Get magnitude
          */
         real magnitude() const { return sqrt(i*i+j*j+k*k+r*r); }
+
+        /**
+       * Get dot or magnitude squared of quaternion
+       */
+        real dot() const { return i*i+j*j+k*k+r*r; }
 
         /**
          * Normalize the quaternion
@@ -65,11 +70,11 @@ namespace Doge {
          * General inverse of quaternion
          */
         Quaternion inverse() const {
-            real length = magnitude();
+            real length = dot(); //todo understand and doc why dot
             if(length == 0.0){
                 return {0,0,0,1};
             }
-            return conjugate() * (1/length);
+            return conjugate() * (1.0/length);
         }
 
         /**
@@ -93,6 +98,26 @@ namespace Doge {
                 k * b.i - i * b.k;
             k = r * b.k + k * b.r +
                 i * b.j - j * b.i;
+        }
+
+
+        //todo doc
+        Vector3 getAngleAxis(){
+            Quaternion q1 = *this;
+            Vector3 out;
+            if (q1.r > 1) q1.normalize(); // if w>1 acos and sqrt will produce errors, this cant happen if quaternion is normalised
+            double s = sqrt(1-q1.r*q1.r); // assuming quaternion normalised then w is less than 1, so term always positive.
+            if (s < 0.001) { // test to avoid divide by zero, s is always positive due to sqrt
+                // if s close to zero then direction of axis not important
+                out.x = q1.i; // if it is important that axis is normalised then replace with x=1; y=z=0;
+                out.y = q1.j;
+                out.z = q1.k;
+            } else {
+                out.x = q1.i / s; // normalise axis
+                out.y = q1.j / s;
+                out.z = q1.k / s;
+            }
+            return out;
         }
 
 

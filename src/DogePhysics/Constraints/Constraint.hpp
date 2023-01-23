@@ -19,7 +19,7 @@ namespace Doge {
          * What to perform before sub steps loop
          * Called only once per full simulation step
          */
-        virtual void init() = 0;
+        virtual void init(double delta_time) = 0;
 
         /**
          * What to perform before solving constraints in a sub step

@@ -16,24 +16,24 @@ namespace Doge {
         std::vector<PotentialCollision> potential_collisions;
 
         //check to others and add to potential
-        void coarceCollide(Collideable* body1){
+        void coarceCollide(Collideable* body1, double  delta_time){
             for (int i = 0; i < getSize(); ++i) {
                 Collideable* body2 = get(i);
                 if(body1 == body2){
                     continue;
                 }
-            if(body1->getCollider()->coarseCollision(body2->getCollider())){
+            if(body1->getCollider()->coarseCollision(body2->getCollider(), delta_time,1)){ //todo changeable K
                 potential_collisions.emplace_back(body1,body2);
             }
 
             }
         }
     public:
-        void findPotentialCollisions() override {
+        void findPotentialCollisions(double  delta_time) override {
             potential_collisions.clear();
             for (int i = 0; i < getSize(); ++i) {
                 Collideable* body1 = get(i);
-                coarceCollide(body1);
+                coarceCollide(body1,delta_time);
             }
         }
 

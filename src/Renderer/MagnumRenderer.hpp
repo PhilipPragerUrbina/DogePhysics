@@ -103,27 +103,27 @@ public:
     }
 
     void translate(const Doge::Vector3&  translation) override {
-        current_matrix = current_matrix * Matrix4::translation({translation.x, translation.y, translation.z});
+        current_matrix = current_matrix * Matrix4::translation({(float )translation.x, (float )translation.y, (float )translation.z});
         updateTransform();
     }
 
     void scale(const Doge::Vector3&  scaling) override {
-        current_matrix = current_matrix * Matrix4::scaling({scaling.x, scaling.y, scaling.z});
+        current_matrix = current_matrix * Matrix4::scaling({(float )scaling.x, (float )scaling.y, (float )scaling.z});
         updateTransform();
     }
 
     void rotate(Doge::real angle_degrees, const Doge::Vector3&  direction) override {
-        current_matrix = current_matrix * Matrix4::rotation(Deg{angle_degrees}, {direction.x, direction.y, direction.z});
+        current_matrix = current_matrix * Matrix4::rotation(Deg{(float )angle_degrees}, {(float )direction.x, (float )direction.y, (float )direction.z});
         updateTransform();
     }
 
     void lookAt(const Doge::Vector3&  eye,const Doge::Vector3&  look_at, const Doge::Vector3&  up) override {
-        current_matrix = current_matrix * Matrix4::lookAt({eye.x, eye.y, eye.z},{look_at.x, look_at.y, look_at.z}, {up.x,up.y,up.z}).invertedRigid();
+        current_matrix = current_matrix * Matrix4::lookAt({(float )eye.x, (float )eye.y, (float )eye.z},{(float )look_at.x, (float )look_at.y, (float )look_at.z}, {(float )up.x,(float )up.y,(float )up.z}).invertedRigid();
         updateTransform();
     }
 
     void rotate(const Doge::Quaternion &rotation) override{
-        current_matrix = current_matrix * Matrix4(Math::Quaternion(Vector3{rotation.i,rotation.j,rotation.k},rotation.r).toMatrix());
+        current_matrix = current_matrix * Matrix4(Math::Quaternion(Vector3{(float )rotation.i,(float )rotation.j,(float )rotation.k},(float )rotation.r).toMatrix());
     }
 
     void inline popMatrix() override {

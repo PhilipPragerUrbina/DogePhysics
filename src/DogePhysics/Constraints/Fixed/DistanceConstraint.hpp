@@ -36,7 +36,8 @@ namespace Doge {
          */
         DistanceConstraint( std::shared_ptr<Constrainable> a, std::shared_ptr<Constrainable> b , const real rest_distance, const real inverse_stiffness = 0) : a(a),b(b), rest_distance(rest_distance), inverse_stiffness(inverse_stiffness){};
 
-        void init() override {} //no init
+        //todo switch doubles to real
+        void init(real delta_time) override {} //no init
 
         void beforeSolve(const real &sub_step_delta, int sub_step_idx) override {
             //update objects

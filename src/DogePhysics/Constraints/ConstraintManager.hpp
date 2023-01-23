@@ -37,7 +37,7 @@ class ConstraintManager : public Updateable , public Group<Constraint>{
             real sub_step_delta = delta_time / (real)num_sub_steps; //Calculate "h" the delta time per sub step
             for (unsigned int i = 0; i < getSize(); ++i) {
                 //Before running sub steps, do anything that needs to be done only once every full step
-                get(i)->init();
+                get(i)->init(delta_time);
             }
 
             //Run sub steps

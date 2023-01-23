@@ -9,6 +9,7 @@
 #include <iostream>
 #include "real.hpp"
 
+
 namespace Doge {
 
     /**
@@ -22,6 +23,8 @@ namespace Doge {
          * Create a zero initialized vector
          */
         Vector3() : x(0) , y(0), z(0){};
+
+
 
         /**
          * Create a vector from 3 components

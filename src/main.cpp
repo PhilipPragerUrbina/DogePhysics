@@ -17,6 +17,17 @@
 
 int main() {
 
+    Doge::Quaternion a = {0.5,0,0,1};
+
+    Doge::Quaternion b = a.inverse();
+    Doge::Quaternion c = a;
+    c*=b;
+    std::cout << c.i << " " << c.j << " " << c.k << " " << c.r << "\n";
+
+    Quaternion a2 = Quaternion{{0.5f,0.0f,0.0f},1.0f};
+    a2 =  a2 * a2.inverted();
+    std::cout << a2.data()[0] << " " << a2.data()[1] << " " << a2.data()[2] << " " << a2.data()[3] << "\n";
+
 
     //Create renderer
     MagnumApplication renderer("Renderer");

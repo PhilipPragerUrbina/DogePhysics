@@ -21,6 +21,11 @@ namespace Doge {
         }
 
         //todo doc
+        void setColliderVelocity(const Vector3& collider_velocity){
+            collider->velocity = collider_velocity;
+        }
+
+        //todo doc
         Collider* getCollider() const {
             collider->setParentTransform((Transformable*)this);
             return collider.get();
