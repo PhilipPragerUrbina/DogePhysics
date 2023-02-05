@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <ostream>
 #include "real.hpp"
 #include "Vector3.hpp"
 
@@ -22,10 +23,11 @@ namespace Doge {
          * @return Vector product
          */
         Vector3 operator * (const Vector3& v) const {
+
             return {
-                data[0][0]*v.x + data[0][1]*v.y + data[0][2] * v.z, //First row
-                data[1][0]*v.x + data[1][1]*v.y + data[1][2] * v.z,
-                data[2][0]*v.x + data[2][1]*v.y + data[2][2] * v.z
+                    data[0][0]*v.x + data[1][0]*v.y + data[2][0] * v.z, //First row
+                    data[0][1]*v.x + data[1][1]*v.y + data[2][1] * v.z,
+                    data[0][2]*v.x + data[1][2]*v.y + data[2][2] * v.z
             };
         }
 
@@ -37,9 +39,9 @@ namespace Doge {
          */
         Vector3 preMultiply(const Vector3& v) const {
             return {
-                    data[0][0]*v.x + data[1][0]*v.y + data[2][0] * v.z, //First row
-                    data[0][1]*v.x + data[1][1]*v.y + data[2][1] * v.z,
-                    data[0][2]*v.x + data[1][2]*v.y + data[2][2] * v.z
+                    data[0][0]*v.x + data[0][1]*v.y + data[0][2] * v.z, //First row
+                    data[1][0]*v.x + data[1][1]*v.y + data[1][2] * v.z,
+                    data[2][0]*v.x + data[2][1]*v.y + data[2][2] * v.z
             };
         }
 
@@ -51,15 +53,15 @@ namespace Doge {
          */
         Matrix3 operator * (const Matrix3& b) const {
             Matrix3 out{};
-            for (int i = 0; i < 3; i++){
-                for (int j = 0; j < 3; j++) {
-                    for (int u = 0; u < 3; u++){
-                        out.data[i][j] += data[i][u] * b.data[u][j];
-                    }
+
+            for (int i = 0; i < 3; i++) {
+                for (int k = 0; k < 3; k++) {
+                    out.data[i][k] = data[i][0] * b.data[0][k] + data[i][1] * b.data[1][k] + data[i][2] * b.data[2][k];
                 }
             }
             return out;
         }
+
 
         /**
          * Get the inverse of the 3x3 matrix
@@ -67,6 +69,7 @@ namespace Doge {
          * @author Modified code from Ian Millington
          */
         Matrix3 inverse() const {
+
             Matrix3 out{};
             real t4 = data[0][0]*data[1][1];
             real t6 = data[0][0]*data[1][2];
@@ -111,9 +114,17 @@ namespace Doge {
             return out;
         }
 
+        friend std::ostream &operator<<(std::ostream &os, const Matrix3 &matrix_3) {
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        os << matrix_3.data[i][j] << " ";
 
+                    }
+                    os << "\n";
+                }
 
-
+            return os;
+        }
 
 
     };

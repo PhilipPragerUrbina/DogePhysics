@@ -14,7 +14,7 @@
 
 class World : public Doge::GameObject{
 public:
-    Doge::ConstraintManager manager{15};
+    Doge::ConstraintManager manager{18};
     std::shared_ptr<Doge::CollisionLayer> layer;
     std::shared_ptr<Doge::CollisionSolver> solver;
 

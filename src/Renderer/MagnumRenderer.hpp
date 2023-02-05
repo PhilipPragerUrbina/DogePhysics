@@ -14,6 +14,7 @@
 #include <Magnum/Platform/Sdl2Application.h>
 #include <Magnum/Primitives/Cube.h>
 #include <Magnum/Primitives/UVSphere.h>
+#include <Magnum/Primitives/Cylinder.h>
 #include <Magnum/Shaders/PhongGL.h>
 #include <Magnum/Trade/MeshData.h>
 #include <iostream>
@@ -57,6 +58,7 @@ public:
         mesh_buffer.emplace_back( MeshTools::compile(Primitives::cubeSolid())); //cube id 0
         mesh_buffer.emplace_back( MeshTools::compile(Primitives::cubeWireframe())); //cube wireframe id 1
         mesh_buffer.emplace_back( MeshTools::compile(Primitives::uvSphereSolid(10,10))); //sphere id 2
+        mesh_buffer.emplace_back( MeshTools::compile(Primitives::cylinderSolid(10,10,0.5))); //Cylinder id 3
         //todo add more primitives such as capsule or cylinder
 
         //set shader
@@ -75,6 +77,10 @@ public:
 
     void drawCube() override {
         shader->draw(mesh_buffer[0]);
+    }
+
+    void drawCylinder() override {
+        shader->draw(mesh_buffer[3]);
     }
 
     void drawSphere() override {

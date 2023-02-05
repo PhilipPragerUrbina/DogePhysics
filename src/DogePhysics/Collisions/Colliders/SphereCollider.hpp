@@ -47,8 +47,8 @@ namespace Doge {
                 return false;
             }
             Vector3 direction = (sphere.position - collider.sphere.position).normalized(); //collider to this
-            data.r1 = sphere.position + -direction * sphere.radius;
-            data.r2 = collider.sphere.position + direction * (collider.sphere.radius);
+            data.r2 = sphere.position + -direction * sphere.radius - sphere.position;
+            data.r1 = collider.sphere.position + direction * (collider.sphere.radius)- collider.sphere.position;
 
             data.normal = direction;
             //positive
@@ -56,6 +56,8 @@ namespace Doge {
 
             return true;
         }
+        bool collide(const CapsuleCollider &collider, CollisionData &data) const override {return false;}//todo default behavior of ret false so unimplented methods dont need to be specified
+
 
         bool collide(const BoxCollider &collider, CollisionData &data) const override {
             return false;

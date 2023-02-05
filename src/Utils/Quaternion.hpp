@@ -31,6 +31,13 @@ namespace Doge {
          */
         Quaternion(real i, real j, real k, real r) : i(i), j(j), k(k), r(r){}
 
+        void operator = (const Quaternion& other){
+            r = other.r;
+            i = other.i;
+            j = other.j;
+            k = other.k;
+        }
+
         /**
          * Get magnitude
          */
@@ -90,35 +97,19 @@ namespace Doge {
          */
         void operator *=(const Quaternion &b)
         {
-            r = r * b.r - i * b.i -
+            Quaternion q;
+            q.r = r * b.r - i * b.i -
                 j * b.j - k * b.k;
-            i = r * b.i + i * b.r +
+            q.i = r * b.i + i * b.r +
                 j * b.k - k * b.j;
-            j = r * b.j + j * b.r +
+            q.j = r * b.j + j * b.r +
                 k * b.i - i * b.k;
-            k = r * b.k + k * b.r +
+            q.k = r * b.k + k * b.r +
                 i * b.j - j * b.i;
+            *this = q;
         }
 
 
-        //todo doc
-        Vector3 getAngleAxis(){
-            Quaternion q1 = *this;
-            Vector3 out;
-            if (q1.r > 1) q1.normalize(); // if w>1 acos and sqrt will produce errors, this cant happen if quaternion is normalised
-            double s = sqrt(1-q1.r*q1.r); // assuming quaternion normalised then w is less than 1, so term always positive.
-            if (s < 0.001) { // test to avoid divide by zero, s is always positive due to sqrt
-                // if s close to zero then direction of axis not important
-                out.x = q1.i; // if it is important that axis is normalised then replace with x=1; y=z=0;
-                out.y = q1.j;
-                out.z = q1.k;
-            } else {
-                out.x = q1.i / s; // normalise axis
-                out.y = q1.j / s;
-                out.z = q1.k / s;
-            }
-            return out;
-        }
 
 
         /**
@@ -131,11 +122,12 @@ namespace Doge {
          */
         void addVector (const Vector3& vector, real multiplier = 1.0){
             Quaternion q(vector.x ,vector.y,vector.z,0 );
+            q = q * 0.5 * multiplier;
             q *= *this;
-            r += q.r * ((real)0.5) * multiplier;
-            i += q.i * ((real)0.5) * multiplier;
-            j += q.j * ((real)0.5) * multiplier;
-            k += q.k * ((real)0.5) * multiplier;
+            r += q.r ;
+            i += q.i;
+            j += q.j ;
+            k += q.k;
         }
 
 

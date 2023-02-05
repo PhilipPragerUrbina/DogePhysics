@@ -13,30 +13,73 @@ World* world = new World;
 scene->addObject(world);
 
 
-    Ball* ball = new  Ball(1000000,{0,-3,0}, 5,true);
-    world->addBall(ball);
 
-    //todo get proper box collisions
-    //todo make sure rotations are working
+
+
+
+
+    for (int i = -4; i < 4; ++i) {
+        Ball* ball = new  Ball(10000,{(Doge::real)i * 2.1,-3.1,0}, 1, false);
+        world->addBall(ball);
+    }
+
+    int height = 60;
+    double width = 1.1;
+    double spacing = 3;
+
+    for (int i = 0; i < height; i+=2) {
+        Ball* ball2 = new  Ball(1,{-width, i * spacing ,0},1);
+        ball2->getParticle()->applyForce({0,-9.8,0});
+        world->addBall(ball2);
+        Ball* ball3 = new  Ball(1,{width, i * spacing ,0},1);
+        ball3->getParticle()->applyForce({0,-9.8,0});
+        world->addBall(ball3);
+
+    }
+
+
+    for (int i = 1; i < height+1; i+=2) {
+        Ball* ball2 = new  Ball(1,{0, i * spacing ,-width},1);
+        Doge::Quaternion rot = ball2->getParticle()->getRotation();
+        ball2->getParticle()->applyForce({0,-9.8,0});
+        rot.addVector({0,M_PI/1.7,0});
+        ball2->getParticle()->setRotation(rot);
+        world->addBall(ball2);
+
+        Ball* ball3 = new  Ball(1,{0, i * spacing ,width},1);
+        ball3->getParticle()->applyForce({0,-9.8,0});
+        ball3->getParticle()->setRotation(rot);
+        world->addBall(ball3);
+
+    }
+
+
+
     //todo clean up
     //todo UX
     //https://matthias-research.github.io/pages/publications/PBDBodies.pdf
 
-    //todo upper balls not moving? seem to have more mass? I think its float precision. Changes too miniscule to allow the larger numbers to build up speed? Only happens with float?
-    //todo two falling balls get stuck together in collision.
+
+
     //can handle a thousand
-    for (int i = 0; i < 20; ++i) {
-        Ball* ball2 = new  Ball(1,{0,(Doge::real)i*3.0f*((i+2)/10.0),0},(double)(i+2)/10);
-        ball2->getParticle()->setAngularVelocity({0,0,0.2});
-        //ball2->getParticle()->applyForce({0,-50,0});
+    for (int i = 1; i < 0; ++i) {
+        double size = (i + 5) /10.0;
+        size = 1;
+        Ball* ball2 = new  Ball(1,{0,(Doge::real)i*3.0f*size + 10  ,0},size);
+        Doge::Quaternion rot = ball2->getParticle()->getRotation();
+        rot.addVector({0,i/3.123,0});
+        ball2->getParticle()->setRotation(rot);
+
+    //  ball2->getParticle()->setAngularVelocity({1,1,0});
+        ball2->getParticle()->applyForce({0,-10,0});
 
         world->addBall(ball2);
     }
 
 
-    //todo review the r1 and r2
-    //todo Try angular velocity
-    //todo do box collision detection tutorial
+
+
+
 
 
 

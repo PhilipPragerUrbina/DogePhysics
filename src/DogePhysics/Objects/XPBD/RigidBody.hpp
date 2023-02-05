@@ -29,8 +29,7 @@ namespace Doge {
          * @param intertia_tensor Intertia
          */
         RigidBody(real mass, Collider* rigid_collider) : Constrainable(mass) , Collideable(rigid_collider){
-            setIntertiaTensor(rigid_collider->createInertiaTensor(mass));
-        }
+            setIntertiaTensor(rigid_collider->createInertiaTensor(mass));}
 
         /**
          * Set the Intertia tensor in body space
@@ -44,7 +43,7 @@ namespace Doge {
          * Get Inverse inertia tensor for constraint calculations
          */
         Matrix3 getInverseIntertia() const {
-            return inverse_intertia;
+            return rotation.getOrientation().transposed() * (  inverse_intertia*rotation.getOrientation()) ;//todo is this correct. It seems to work but why? Different from should be(multiplications order is swapped). Maybe the inertia tensor was generated incorrectly in the first place?
         }
 
         //todo doc
@@ -106,8 +105,7 @@ namespace Doge {
             //Get rotation delta
             Quaternion rotation_delta = rotation;
             rotation_delta *= prev_rotation.inverse();
-            angular_velocity =rotation_delta.getAngleAxis()/sub_step_delta; //Update angular velocity
-            std::cout << angular_velocity << "\n";
+            angular_velocity = 2.0 * Vector3(rotation_delta.i,rotation_delta.j, rotation_delta.k)/sub_step_delta; //Update angular velocity
             //Set direction of velocity
             angular_velocity = rotation_delta.r >= 0 ? angular_velocity : -angular_velocity;
 

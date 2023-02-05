@@ -16,6 +16,7 @@ namespace Doge {
     class Collideable;
     class BoxCollider;
     class SphereCollider;
+    class CapsuleCollider;
 
     /**
      * Data from collision
@@ -28,6 +29,7 @@ namespace Doge {
         Collideable* b; //Bodies that collided 1 and 2 respectively. To be assigned by collision layer, not the collision check.
         //todo calculate r1 and r2 here
         //todo normal is in what direction
+        Vector3 lambda;
     };
 
     /**
@@ -100,13 +102,46 @@ namespace Doge {
              */
         virtual bool collide(const BoxCollider& collider, CollisionData& data) const = 0;
 
+
+        /**
+             * Check collision with a capsule
+             * @param collider Box to check collision with
+             * @param data Put collision data here if collision
+             * @return True if collision
+             */
+        virtual bool collide(const CapsuleCollider& collider, CollisionData& data) const = 0;
+
     };
 
     /**
      * Potential collision helper struct
      */
     struct PotentialCollision {
+        /**
+         * Store a potential collision between two objects
+         * Only one combination of the objects needs to be registered (a-b OR b-a)
+         */
         PotentialCollision(Collideable* a, Collideable* b) : a(a), b(b){}
+
+        /**
+         * Get the potential collision entry that is different but equivalent
+         * Used to remove duplicate collisions
+         */
+        PotentialCollision getEquivalent() const {
+            return {b,a};
+        }
+
+
+        /**
+         * Check if two PotentialCollisions are equal
+         * Make sure to also check with getEquivalent()
+         * Used to remove duplicates
+         */
+        bool operator==(const PotentialCollision &rhs) const {
+            return a == rhs.a &&
+                   b == rhs.b;
+        }
+
         Collideable* a;
         Collideable* b;
     };

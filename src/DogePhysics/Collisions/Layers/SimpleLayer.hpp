@@ -22,8 +22,21 @@ namespace Doge {
                 if(body1 == body2){
                     continue;
                 }
-            if(body1->getCollider()->coarseCollision(body2->getCollider(), delta_time,1)){ //todo changeable K
-                potential_collisions.emplace_back(body1,body2);
+            if(body1->getCollider()->coarseCollision(body2->getCollider(), delta_time,2)){ //todo changeable K
+                PotentialCollision collision(body1,body2);
+                PotentialCollision duplicate = collision.getEquivalent(); //Equivalent collision that may already exist
+
+                bool add = true;
+                for (PotentialCollision existing_collision: potential_collisions) { //check for duplicates
+                    if(existing_collision == duplicate){
+                        add = false;
+                        break;
+                    }
+                }
+               if(add){
+                    potential_collisions.push_back(collision); //only add if no duplicate
+                }
+
             }
 
             }
@@ -42,7 +55,7 @@ namespace Doge {
             for (PotentialCollision potential_collision : potential_collisions) {
                 CollisionData data;
                 if(potential_collision.a->getCollider()->collide(potential_collision.b->getCollider(),data)){
-                    data.a = potential_collision.a; //todo make sure order is correct
+                    data.a= potential_collision.a; //todo make sure order is correct
                     data.b = potential_collision.b;
                     out.push_back(data);
                 }

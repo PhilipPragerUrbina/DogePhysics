@@ -12,7 +12,7 @@
 #include "../../DogePhysics/ForceCalculators/SimpleDrag.hpp"
 #include "../../DogePhysics/Objects/XPBD/RigidBody.hpp"
 #include "../../DogePhysics/Collisions/Colliders/SphereCollider.hpp"
-#include "../../DogePhysics/Collisions/Colliders/BoxCollider.hpp"
+#include "../../DogePhysics/Collisions/Colliders/CapsuleCollider.hpp"
 class Ball : public Doge::GameObject{
 private:
     std::shared_ptr<Doge::RigidBody> particle;
@@ -20,11 +20,13 @@ private:
     bool action;
     int amount = 0;
     double size;
+    double ss;
 public:
     Ball(Doge::real mass, Doge::Vector3 position,double s, bool move = false){
+        ss=3;
         size = s;
         action = move;
-        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::BoxCollider(size) );//todo box collider
+        particle = std::make_shared<Doge::RigidBody> (mass, new Doge::CapsuleCollider(size*ss, size) );//todo box collider
         particle->setPosition(position);
        //particle->applyForce({0,-1,0});
     }
@@ -38,9 +40,18 @@ protected:
 
 
     void render(Doge::Renderer *renderer) override {
+        renderer->pushMatrix();
         renderer->scale(size);
+        renderer->translate({0,0,size* ss * 0.5});
         renderer->drawSphere();
-        renderer->drawCube();
+        renderer->translate({0,0,-size* ss });
+        renderer->drawSphere();
+        renderer->popMatrix();
+        renderer->rotate(90,{1,0,0});
+        renderer->scale({size,size*ss,size});
+        renderer->drawCylinder();
+
+
 
     }
 
@@ -54,8 +65,8 @@ protected:
 
         if(action){
             amount++;
-            if(amount > 1){
-                particle->setPosition(particle->getPosition() - Doge::Vector3{0.1,0,0});
+            if(amount > 500){
+                particle->setPosition(particle->getPosition() - Doge::Vector3{0.2,0,0});
                 action = false;
             }
         }

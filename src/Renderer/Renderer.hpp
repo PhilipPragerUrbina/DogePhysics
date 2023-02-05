@@ -28,6 +28,12 @@ namespace Doge {
          * Draw a primitive cube
          */
         virtual void drawCube() = 0;
+
+        /**
+       * Draw a cylinder tip facing y
+       */
+        virtual void drawCylinder() = 0;
+
         /**
          * Draw a primitive sphere
          */
