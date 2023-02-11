@@ -22,7 +22,7 @@ namespace Doge {
          * Load a mesh to draw later
          * @return The id of the loaded mesh for drawing
          */
-        virtual unsigned int loadMesh()=0;//todo take either vertex data and/or a filename
+        virtual unsigned int loadMesh(std::string filename)=0;//todo take either vertex data and/or a filename
 
         /**
          * Draw a primitive cube

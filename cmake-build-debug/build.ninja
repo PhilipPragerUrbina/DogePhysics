@@ -47,7 +47,7 @@ cmake_ninja_workdir = C$:\Users\Philip\CLionProjects\DogePhysics\cmake-build-deb
 #############################################
 # Order-only phony target for DogePhysics
 
-build cmake_object_order_depends_target_DogePhysics: phony || cmake_object_order_depends_target_CorradeMain cmake_object_order_depends_target_CorradePluginManager cmake_object_order_depends_target_CorradeUtility cmake_object_order_depends_target_Magnum cmake_object_order_depends_target_MagnumGL cmake_object_order_depends_target_MagnumMeshTools cmake_object_order_depends_target_MagnumPrimitives cmake_object_order_depends_target_MagnumSdl2Application cmake_object_order_depends_target_MagnumShaders cmake_object_order_depends_target_MagnumTrade
+build cmake_object_order_depends_target_DogePhysics: phony || cmake_object_order_depends_target_AnyImageImporter cmake_object_order_depends_target_CorradeMain cmake_object_order_depends_target_CorradePluginManager cmake_object_order_depends_target_CorradeUtility cmake_object_order_depends_target_Magnum cmake_object_order_depends_target_MagnumGL cmake_object_order_depends_target_MagnumMeshTools cmake_object_order_depends_target_MagnumPrimitives cmake_object_order_depends_target_MagnumSdl2Application cmake_object_order_depends_target_MagnumShaders cmake_object_order_depends_target_MagnumTrade cmake_object_order_depends_target_ObjImporter cmake_object_order_depends_target_TgaImporter
 
 build CMakeFiles\DogePhysics.dir\src\main.cpp.obj: CXX_COMPILER__DogePhysics_Debug C$:\Users\Philip\CLionProjects\DogePhysics\src\main.cpp || cmake_object_order_depends_target_DogePhysics
   DEFINES = -DCORRADE_IS_DEBUG_BUILD -DNOMINMAX -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS
@@ -66,7 +66,7 @@ build CMakeFiles\DogePhysics.dir\src\main.cpp.obj: CXX_COMPILER__DogePhysics_Deb
 #############################################
 # Link the executable Debug\bin\DogePhysics.exe
 
-build Debug\bin\DogePhysics.exe: CXX_EXECUTABLE_LINKER__DogePhysics_Debug CMakeFiles\DogePhysics.dir\src\main.cpp.obj | Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib Debug\lib\MagnumPrimitives-d.lib Debug\lib\MagnumShaders-d.lib ..\external\SDL2-2.24.2\lib\x86\SDL2.lib Debug\lib\MagnumMeshTools-d.lib Debug\lib\MagnumTrade-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\MagnumGL-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumGL-d.dll Debug\bin\MagnumMeshTools-d.dll Debug\bin\MagnumPrimitives-d.dll Debug\bin\MagnumShaders-d.dll Debug\bin\MagnumTrade-d.dll Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib
+build Debug\bin\DogePhysics.exe: CXX_EXECUTABLE_LINKER__DogePhysics_Debug CMakeFiles\DogePhysics.dir\src\main.cpp.obj | Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib Debug\lib\MagnumPrimitives-d.lib Debug\lib\MagnumShaders-d.lib ..\external\SDL2-2.24.2\lib\x86\SDL2.lib Debug\lib\MagnumMeshTools-d.lib Debug\lib\MagnumTrade-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\MagnumGL-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumGL-d.dll Debug\bin\MagnumMeshTools-d.dll Debug\bin\MagnumPrimitives-d.dll Debug\bin\MagnumShaders-d.dll Debug\bin\MagnumTrade-d.dll Debug\bin\magnum-d\importers\AnyImageImporter.dll Debug\bin\magnum-d\importers\ObjImporter.dll Debug\bin\magnum-d\importers\TgaImporter.dll Debug\lib\CorradeMain-d.lib Debug\lib\MagnumSdl2Application-d.lib
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = Debug\lib\CorradeMain-d.lib  Debug\lib\MagnumSdl2Application-d.lib  Debug\lib\MagnumPrimitives-d.lib  Debug\lib\MagnumShaders-d.lib  -ENTRY:wmainCRTStartup  ..\external\SDL2-2.24.2\lib\x86\SDL2.lib  Debug\lib\MagnumMeshTools-d.lib  Debug\lib\MagnumTrade-d.lib  Debug\lib\CorradePluginManager-d.lib  Debug\lib\MagnumGL-d.lib  opengl32.lib  Debug\lib\Magnum-d.lib  Debug\lib\CorradeUtility-d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -5158,6 +5158,315 @@ build external\magnum\src\MagnumPlugins\install\local: phony external\magnum\src
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
+# C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src/MagnumPlugins/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target AnyImageImporter
+
+
+#############################################
+# Order-only phony target for AnyImageImporter
+
+build cmake_object_order_depends_target_AnyImageImporter: phony || cmake_object_order_depends_target_CorradePluginManager cmake_object_order_depends_target_CorradeUtility cmake_object_order_depends_target_Magnum cmake_object_order_depends_target_MagnumTrade
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir\AnyImageImporter.cpp.obj: CXX_COMPILER__AnyImageImporter_Debug C$:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src\MagnumPlugins\AnyImageImporter\AnyImageImporter.cpp || cmake_object_order_depends_target_AnyImageImporter
+  DEFINES = -DAnyImageImporter_EXPORTS -DCORRADE_DYNAMIC_PLUGIN -DCORRADE_IS_DEBUG_BUILD -DNOMINMAX -DUNICODE -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd /W4 /wd4127 /wd4251 /wd4244 /wd4267 /wd4324 /wd4351 /wd4373 /wd4458 /wd4510 /wd4610 /wd4512 /wd4661 /wd4702 /wd4706 /wd4800 /wd4910 -std:c++17
+  INCLUDES = -IC:\Users\Philip\CLionProjects\DogePhysics\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src
+  OBJECT_DIR = external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir
+  OBJECT_FILE_DIR = external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir
+  TARGET_COMPILE_PDB = external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir\
+  TARGET_PDB = Debug\bin\magnum-d\importers\AnyImageImporter.pdb
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target AnyImageImporter
+
+
+#############################################
+# Link the shared library Debug\bin\magnum-d\importers\AnyImageImporter.dll
+
+build Debug\bin\magnum-d\importers\AnyImageImporter.dll Debug\lib\magnum-d\importers\AnyImageImporter.lib: CXX_SHARED_LIBRARY_LINKER__AnyImageImporter_Debug external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir\AnyImageImporter.cpp.obj | Debug\lib\MagnumTrade-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumTrade-d.dll
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:X86 /debug /INCREMENTAL
+  LINK_LIBRARIES = Debug\lib\MagnumTrade-d.lib  Debug\lib\Magnum-d.lib  Debug\lib\CorradePluginManager-d.lib  Debug\lib\CorradeUtility-d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir
+  POST_BUILD = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src\MagnumPlugins\AnyImageImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E copy AnyImageImporter.conf C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/Debug/bin/magnum-d/importers/AnyImageImporter.conf"
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_COMPILE_PDB = external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\AnyImageImporter.dir\
+  TARGET_FILE = Debug\bin\magnum-d\importers\AnyImageImporter.dll
+  TARGET_IMPLIB = Debug\lib\magnum-d\importers\AnyImageImporter.lib
+  TARGET_PDB = Debug\bin\magnum-d\importers\AnyImageImporter.pdb
+
+
+#############################################
+# Utility command for AnyImageImporter-metadata
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\AnyImageImporter-metadata: phony
+
+
+#############################################
+# Utility command for edit_cache
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\AnyImageImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\edit_cache: phony external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\AnyImageImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\Philip\CLionProjects\DogePhysics -BC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\rebuild_cache: phony external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\install.util: CUSTOM_COMMAND external\magnum\src\MagnumPlugins\AnyImageImporter\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\AnyImageImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\install: phony external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\install\local.util: CUSTOM_COMMAND external\magnum\src\MagnumPlugins\AnyImageImporter\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\AnyImageImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\install\local: phony external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeFiles\install\local.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src/MagnumPlugins/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target ObjImporter
+
+
+#############################################
+# Order-only phony target for ObjImporter
+
+build cmake_object_order_depends_target_ObjImporter: phony || cmake_object_order_depends_target_CorradePluginManager cmake_object_order_depends_target_CorradeUtility cmake_object_order_depends_target_Magnum cmake_object_order_depends_target_MagnumGL cmake_object_order_depends_target_MagnumMeshTools cmake_object_order_depends_target_MagnumTrade
+
+build external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir\ObjImporter.cpp.obj: CXX_COMPILER__ObjImporter_Debug C$:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src\MagnumPlugins\ObjImporter\ObjImporter.cpp || cmake_object_order_depends_target_ObjImporter
+  DEFINES = -DCORRADE_DYNAMIC_PLUGIN -DCORRADE_IS_DEBUG_BUILD -DNOMINMAX -DObjImporter_EXPORTS -DUNICODE -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd /W4 /wd4127 /wd4251 /wd4244 /wd4267 /wd4324 /wd4351 /wd4373 /wd4458 /wd4510 /wd4610 /wd4512 /wd4661 /wd4702 /wd4706 /wd4800 /wd4910 -std:c++17
+  INCLUDES = -IC:\Users\Philip\CLionProjects\DogePhysics\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src
+  OBJECT_DIR = external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir
+  OBJECT_FILE_DIR = external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir
+  TARGET_COMPILE_PDB = external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir\
+  TARGET_PDB = Debug\bin\magnum-d\importers\ObjImporter.pdb
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target ObjImporter
+
+
+#############################################
+# Link the shared library Debug\bin\magnum-d\importers\ObjImporter.dll
+
+build Debug\bin\magnum-d\importers\ObjImporter.dll Debug\lib\magnum-d\importers\ObjImporter.lib: CXX_SHARED_LIBRARY_LINKER__ObjImporter_Debug external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir\ObjImporter.cpp.obj | Debug\lib\MagnumMeshTools-d.lib Debug\lib\MagnumTrade-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\MagnumGL-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumGL-d.dll Debug\bin\MagnumMeshTools-d.dll Debug\bin\MagnumTrade-d.dll
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:X86 /debug /INCREMENTAL
+  LINK_LIBRARIES = Debug\lib\MagnumMeshTools-d.lib  Debug\lib\MagnumTrade-d.lib  Debug\lib\CorradePluginManager-d.lib  Debug\lib\MagnumGL-d.lib  Debug\lib\Magnum-d.lib  Debug\lib\CorradeUtility-d.lib  opengl32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir
+  POST_BUILD = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src\MagnumPlugins\ObjImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E copy ObjImporter.conf C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/Debug/bin/magnum-d/importers/ObjImporter.conf"
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_COMPILE_PDB = external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\ObjImporter.dir\
+  TARGET_FILE = Debug\bin\magnum-d\importers\ObjImporter.dll
+  TARGET_IMPLIB = Debug\lib\magnum-d\importers\ObjImporter.lib
+  TARGET_PDB = Debug\bin\magnum-d\importers\ObjImporter.pdb
+
+
+#############################################
+# Utility command for ObjImporter-metadata
+
+build external\magnum\src\MagnumPlugins\ObjImporter\ObjImporter-metadata: phony
+
+
+#############################################
+# Utility command for edit_cache
+
+build external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\ObjImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\ObjImporter\edit_cache: phony external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\ObjImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\Philip\CLionProjects\DogePhysics -BC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\ObjImporter\rebuild_cache: phony external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build external\magnum\src\MagnumPlugins\ObjImporter\list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\install.util: CUSTOM_COMMAND external\magnum\src\MagnumPlugins\ObjImporter\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\ObjImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\ObjImporter\install: phony external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\install\local.util: CUSTOM_COMMAND external\magnum\src\MagnumPlugins\ObjImporter\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\ObjImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\ObjImporter\install\local: phony external\magnum\src\MagnumPlugins\ObjImporter\CMakeFiles\install\local.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src/MagnumPlugins/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target TgaImporter
+
+
+#############################################
+# Order-only phony target for TgaImporter
+
+build cmake_object_order_depends_target_TgaImporter: phony || cmake_object_order_depends_target_CorradePluginManager cmake_object_order_depends_target_CorradeUtility cmake_object_order_depends_target_Magnum cmake_object_order_depends_target_MagnumTrade
+
+build external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir\TgaImporter.cpp.obj: CXX_COMPILER__TgaImporter_Debug C$:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src\MagnumPlugins\TgaImporter\TgaImporter.cpp || cmake_object_order_depends_target_TgaImporter
+  DEFINES = -DCORRADE_DYNAMIC_PLUGIN -DCORRADE_IS_DEBUG_BUILD -DNOMINMAX -DTgaImporter_EXPORTS -DUNICODE -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_UNICODE
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd /W4 /wd4127 /wd4251 /wd4244 /wd4267 /wd4324 /wd4351 /wd4373 /wd4458 /wd4510 /wd4610 /wd4512 /wd4661 /wd4702 /wd4706 /wd4800 /wd4910 -std:c++17
+  INCLUDES = -IC:\Users\Philip\CLionProjects\DogePhysics\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\corrade\src -IC:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src -IC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src
+  OBJECT_DIR = external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir
+  OBJECT_FILE_DIR = external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir
+  TARGET_COMPILE_PDB = external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir\
+  TARGET_PDB = Debug\bin\magnum-d\importers\TgaImporter.pdb
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target TgaImporter
+
+
+#############################################
+# Link the shared library Debug\bin\magnum-d\importers\TgaImporter.dll
+
+build Debug\bin\magnum-d\importers\TgaImporter.dll Debug\lib\magnum-d\importers\TgaImporter.lib: CXX_SHARED_LIBRARY_LINKER__TgaImporter_Debug external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir\TgaImporter.cpp.obj | Debug\lib\MagnumTrade-d.lib Debug\lib\Magnum-d.lib Debug\lib\CorradePluginManager-d.lib Debug\lib\CorradeUtility-d.lib || Debug\bin\CorradePluginManager-d.dll Debug\bin\CorradeUtility-d.dll Debug\bin\Magnum-d.dll Debug\bin\MagnumTrade-d.dll
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:X86 /debug /INCREMENTAL
+  LINK_LIBRARIES = Debug\lib\MagnumTrade-d.lib  Debug\lib\Magnum-d.lib  Debug\lib\CorradePluginManager-d.lib  Debug\lib\CorradeUtility-d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir
+  POST_BUILD = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\external\magnum\src\MagnumPlugins\TgaImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E copy TgaImporter.conf C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/Debug/bin/magnum-d/importers/TgaImporter.conf"
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_COMPILE_PDB = external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\TgaImporter.dir\
+  TARGET_FILE = Debug\bin\magnum-d\importers\TgaImporter.dll
+  TARGET_IMPLIB = Debug\lib\magnum-d\importers\TgaImporter.lib
+  TARGET_PDB = Debug\bin\magnum-d\importers\TgaImporter.pdb
+
+
+#############################################
+# Utility command for TgaImporter-metadata
+
+build external\magnum\src\MagnumPlugins\TgaImporter\TgaImporter-metadata: phony
+
+
+#############################################
+# Utility command for edit_cache
+
+build external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\TgaImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\TgaImporter\edit_cache: phony external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\TgaImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\Philip\CLionProjects\DogePhysics -BC:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\TgaImporter\rebuild_cache: phony external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build external\magnum\src\MagnumPlugins\TgaImporter\list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\install.util: CUSTOM_COMMAND external\magnum\src\MagnumPlugins\TgaImporter\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\TgaImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\TgaImporter\install: phony external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for install/local
+
+build external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\install\local.util: CUSTOM_COMMAND external\magnum\src\MagnumPlugins\TgaImporter\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Philip\CLionProjects\DogePhysics\cmake-build-debug\external\magnum\src\MagnumPlugins\TgaImporter && "C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build external\magnum\src\MagnumPlugins\TgaImporter\install\local: phony external\magnum\src\MagnumPlugins\TgaImporter\CMakeFiles\install\local.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
 # C:/Users/Philip/CLionProjects/DogePhysics/external/magnum/src/CMakeLists.txt
 # =============================================================================
 
@@ -5216,6 +5525,12 @@ build external\magnum\src\debuggers\install\local: phony external\magnum\src\deb
 
 # =============================================================================
 # Target aliases.
+
+build AnyImageImporter: phony Debug\bin\magnum-d\importers\AnyImageImporter.dll
+
+build AnyImageImporter-metadata: phony external\magnum\src\MagnumPlugins\AnyImageImporter\AnyImageImporter-metadata
+
+build AnyImageImporter.dll: phony Debug\bin\magnum-d\importers\AnyImageImporter.dll
 
 build Corrade: phony external\corrade\src\Corrade\Corrade
 
@@ -5346,6 +5661,18 @@ build MagnumTrade-d.dll: phony Debug\bin\MagnumTrade-d.dll
 build MagnumTradeObjects: phony external\magnum\src\Magnum\Trade\MagnumTradeObjects
 
 build MagnumWglContextObjects: phony external\magnum\src\Magnum\Platform\MagnumWglContextObjects
+
+build ObjImporter: phony Debug\bin\magnum-d\importers\ObjImporter.dll
+
+build ObjImporter-metadata: phony external\magnum\src\MagnumPlugins\ObjImporter\ObjImporter-metadata
+
+build ObjImporter.dll: phony Debug\bin\magnum-d\importers\ObjImporter.dll
+
+build TgaImporter: phony Debug\bin\magnum-d\importers\TgaImporter.dll
+
+build TgaImporter-metadata: phony external\magnum\src\MagnumPlugins\TgaImporter\TgaImporter-metadata
+
+build TgaImporter.dll: phony Debug\bin\magnum-d\importers\TgaImporter.dll
 
 build corrade-rc: phony Debug\bin\corrade-rc.exe
 
@@ -5611,7 +5938,28 @@ build external\magnum\src\MagnumExternal\OpenGL\KHR\all: phony
 #############################################
 # Folder: C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum/src/MagnumPlugins
 
-build external\magnum\src\MagnumPlugins\all: phony
+build external\magnum\src\MagnumPlugins\all: phony external\magnum\src\MagnumPlugins\AnyImageImporter\all external\magnum\src\MagnumPlugins\ObjImporter\all external\magnum\src\MagnumPlugins\TgaImporter\all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum/src/MagnumPlugins/AnyImageImporter
+
+build external\magnum\src\MagnumPlugins\AnyImageImporter\all: phony Debug\bin\magnum-d\importers\AnyImageImporter.dll
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum/src/MagnumPlugins/ObjImporter
+
+build external\magnum\src\MagnumPlugins\ObjImporter\all: phony Debug\bin\magnum-d\importers\ObjImporter.dll
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/Philip/CLionProjects/DogePhysics/cmake-build-debug/external/magnum/src/MagnumPlugins/TgaImporter
+
+build external\magnum\src\MagnumPlugins\TgaImporter\all: phony Debug\bin\magnum-d\importers\TgaImporter.dll
 
 # =============================================================================
 
@@ -5627,14 +5975,14 @@ build external\magnum\src\debuggers\all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt ..\external\corrade\CMakeLists.txt ..\external\corrade\modules\CMakeLists.txt ..\external\corrade\modules\CorradeLibSuffix.cmake ..\external\corrade\modules\UseCorrade.cmake ..\external\corrade\src\CMakeLists.txt ..\external\corrade\src\Corrade\CMakeLists.txt ..\external\corrade\src\Corrade\Containers\CMakeLists.txt ..\external\corrade\src\Corrade\Interconnect\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\configure.h.cmake ..\external\corrade\src\Corrade\TestSuite\CMakeLists.txt ..\external\corrade\src\Corrade\TestSuite\Compare\CMakeLists.txt ..\external\corrade\src\Corrade\Utility\CMakeLists.txt ..\external\corrade\src\Corrade\configure.h.cmake ..\external\corrade\src\Corrade\version.h.cmake ..\external\corrade\src\debuggers\CMakeLists.txt ..\external\magnum\CMakeLists.txt ..\external\magnum\modules\CMakeLists.txt ..\external\magnum\modules\FindCorrade.cmake ..\external\magnum\modules\FindSDL2.cmake ..\external\magnum\src\CMakeLists.txt ..\external\magnum\src\MagnumExternal\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\GL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\KHR\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\CMakeLists.txt ..\external\magnum\src\Magnum\Animation\CMakeLists.txt ..\external\magnum\src\Magnum\CMakeLists.txt ..\external\magnum\src\Magnum\DebugTools\CMakeLists.txt ..\external\magnum\src\Magnum\GL\CMakeLists.txt ..\external\magnum\src\Magnum\MaterialTools\CMakeLists.txt ..\external\magnum\src\Magnum\Math\Algorithms\CMakeLists.txt ..\external\magnum\src\Magnum\Math\CMakeLists.txt ..\external\magnum\src\Magnum\MeshTools\CMakeLists.txt ..\external\magnum\src\Magnum\Platform\CMakeLists.txt ..\external\magnum\src\Magnum\Primitives\CMakeLists.txt ..\external\magnum\src\Magnum\SceneGraph\CMakeLists.txt ..\external\magnum\src\Magnum\SceneTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\configure.h.cmake ..\external\magnum\src\Magnum\Shaders\CMakeLists.txt ..\external\magnum\src\Magnum\Shaders\resources-gl.conf ..\external\magnum\src\Magnum\Text\CMakeLists.txt ..\external\magnum\src\Magnum\Text\configure.h.cmake ..\external\magnum\src\Magnum\TextureTools\CMakeLists.txt ..\external\magnum\src\Magnum\TextureTools\resources.conf ..\external\magnum\src\Magnum\Trade\CMakeLists.txt ..\external\magnum\src\Magnum\Trade\configure.h.cmake ..\external\magnum\src\Magnum\configure.h.cmake ..\external\magnum\src\Magnum\version.h.cmake ..\external\magnum\src\debuggers\CMakeLists.txt ..\external\modules\FindCorrade.cmake ..\external\modules\FindMagnum.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindOpenGL.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt ..\external\corrade\CMakeLists.txt ..\external\corrade\modules\CMakeLists.txt ..\external\corrade\modules\CorradeLibSuffix.cmake ..\external\corrade\modules\UseCorrade.cmake ..\external\corrade\src\CMakeLists.txt ..\external\corrade\src\Corrade\CMakeLists.txt ..\external\corrade\src\Corrade\Containers\CMakeLists.txt ..\external\corrade\src\Corrade\Interconnect\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\configure.h.cmake ..\external\corrade\src\Corrade\TestSuite\CMakeLists.txt ..\external\corrade\src\Corrade\TestSuite\Compare\CMakeLists.txt ..\external\corrade\src\Corrade\Utility\CMakeLists.txt ..\external\corrade\src\Corrade\configure.h.cmake ..\external\corrade\src\Corrade\version.h.cmake ..\external\corrade\src\debuggers\CMakeLists.txt ..\external\magnum\CMakeLists.txt ..\external\magnum\modules\CMakeLists.txt ..\external\magnum\modules\FindCorrade.cmake ..\external\magnum\modules\FindSDL2.cmake ..\external\magnum\src\CMakeLists.txt ..\external\magnum\src\MagnumExternal\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\GL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\KHR\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\AnyImageImporter\configure.h.cmake ..\external\magnum\src\MagnumPlugins\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\ObjImporter\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\ObjImporter\configure.h.cmake ..\external\magnum\src\MagnumPlugins\TgaImporter\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\TgaImporter\configure.h.cmake ..\external\magnum\src\Magnum\Animation\CMakeLists.txt ..\external\magnum\src\Magnum\CMakeLists.txt ..\external\magnum\src\Magnum\DebugTools\CMakeLists.txt ..\external\magnum\src\Magnum\GL\CMakeLists.txt ..\external\magnum\src\Magnum\MaterialTools\CMakeLists.txt ..\external\magnum\src\Magnum\Math\Algorithms\CMakeLists.txt ..\external\magnum\src\Magnum\Math\CMakeLists.txt ..\external\magnum\src\Magnum\MeshTools\CMakeLists.txt ..\external\magnum\src\Magnum\Platform\CMakeLists.txt ..\external\magnum\src\Magnum\Primitives\CMakeLists.txt ..\external\magnum\src\Magnum\SceneGraph\CMakeLists.txt ..\external\magnum\src\Magnum\SceneTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\configure.h.cmake ..\external\magnum\src\Magnum\Shaders\CMakeLists.txt ..\external\magnum\src\Magnum\Shaders\resources-gl.conf ..\external\magnum\src\Magnum\Text\CMakeLists.txt ..\external\magnum\src\Magnum\Text\configure.h.cmake ..\external\magnum\src\Magnum\TextureTools\CMakeLists.txt ..\external\magnum\src\Magnum\TextureTools\resources.conf ..\external\magnum\src\Magnum\Trade\CMakeLists.txt ..\external\magnum\src\Magnum\Trade\configure.h.cmake ..\external\magnum\src\Magnum\configure.h.cmake ..\external\magnum\src\Magnum\version.h.cmake ..\external\magnum\src\debuggers\CMakeLists.txt ..\external\modules\FindCorrade.cmake ..\external\modules\FindMagnum.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindOpenGL.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\CMakeLists.txt ..\external\corrade\CMakeLists.txt ..\external\corrade\modules\CMakeLists.txt ..\external\corrade\modules\CorradeLibSuffix.cmake ..\external\corrade\modules\UseCorrade.cmake ..\external\corrade\src\CMakeLists.txt ..\external\corrade\src\Corrade\CMakeLists.txt ..\external\corrade\src\Corrade\Containers\CMakeLists.txt ..\external\corrade\src\Corrade\Interconnect\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\configure.h.cmake ..\external\corrade\src\Corrade\TestSuite\CMakeLists.txt ..\external\corrade\src\Corrade\TestSuite\Compare\CMakeLists.txt ..\external\corrade\src\Corrade\Utility\CMakeLists.txt ..\external\corrade\src\Corrade\configure.h.cmake ..\external\corrade\src\Corrade\version.h.cmake ..\external\corrade\src\debuggers\CMakeLists.txt ..\external\magnum\CMakeLists.txt ..\external\magnum\modules\CMakeLists.txt ..\external\magnum\modules\FindCorrade.cmake ..\external\magnum\modules\FindSDL2.cmake ..\external\magnum\src\CMakeLists.txt ..\external\magnum\src\MagnumExternal\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\GL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\KHR\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\CMakeLists.txt ..\external\magnum\src\Magnum\Animation\CMakeLists.txt ..\external\magnum\src\Magnum\CMakeLists.txt ..\external\magnum\src\Magnum\DebugTools\CMakeLists.txt ..\external\magnum\src\Magnum\GL\CMakeLists.txt ..\external\magnum\src\Magnum\MaterialTools\CMakeLists.txt ..\external\magnum\src\Magnum\Math\Algorithms\CMakeLists.txt ..\external\magnum\src\Magnum\Math\CMakeLists.txt ..\external\magnum\src\Magnum\MeshTools\CMakeLists.txt ..\external\magnum\src\Magnum\Platform\CMakeLists.txt ..\external\magnum\src\Magnum\Primitives\CMakeLists.txt ..\external\magnum\src\Magnum\SceneGraph\CMakeLists.txt ..\external\magnum\src\Magnum\SceneTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\configure.h.cmake ..\external\magnum\src\Magnum\Shaders\CMakeLists.txt ..\external\magnum\src\Magnum\Shaders\resources-gl.conf ..\external\magnum\src\Magnum\Text\CMakeLists.txt ..\external\magnum\src\Magnum\Text\configure.h.cmake ..\external\magnum\src\Magnum\TextureTools\CMakeLists.txt ..\external\magnum\src\Magnum\TextureTools\resources.conf ..\external\magnum\src\Magnum\Trade\CMakeLists.txt ..\external\magnum\src\Magnum\Trade\configure.h.cmake ..\external\magnum\src\Magnum\configure.h.cmake ..\external\magnum\src\Magnum\version.h.cmake ..\external\magnum\src\debuggers\CMakeLists.txt ..\external\modules\FindCorrade.cmake ..\external\modules\FindMagnum.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindOpenGL.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake: phony
+build ..\CMakeLists.txt ..\external\corrade\CMakeLists.txt ..\external\corrade\modules\CMakeLists.txt ..\external\corrade\modules\CorradeLibSuffix.cmake ..\external\corrade\modules\UseCorrade.cmake ..\external\corrade\src\CMakeLists.txt ..\external\corrade\src\Corrade\CMakeLists.txt ..\external\corrade\src\Corrade\Containers\CMakeLists.txt ..\external\corrade\src\Corrade\Interconnect\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\CMakeLists.txt ..\external\corrade\src\Corrade\PluginManager\configure.h.cmake ..\external\corrade\src\Corrade\TestSuite\CMakeLists.txt ..\external\corrade\src\Corrade\TestSuite\Compare\CMakeLists.txt ..\external\corrade\src\Corrade\Utility\CMakeLists.txt ..\external\corrade\src\Corrade\configure.h.cmake ..\external\corrade\src\Corrade\version.h.cmake ..\external\corrade\src\debuggers\CMakeLists.txt ..\external\magnum\CMakeLists.txt ..\external\magnum\modules\CMakeLists.txt ..\external\magnum\modules\FindCorrade.cmake ..\external\magnum\modules\FindSDL2.cmake ..\external\magnum\src\CMakeLists.txt ..\external\magnum\src\MagnumExternal\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\GL\CMakeLists.txt ..\external\magnum\src\MagnumExternal\OpenGL\KHR\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\AnyImageImporter\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\AnyImageImporter\configure.h.cmake ..\external\magnum\src\MagnumPlugins\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\ObjImporter\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\ObjImporter\configure.h.cmake ..\external\magnum\src\MagnumPlugins\TgaImporter\CMakeLists.txt ..\external\magnum\src\MagnumPlugins\TgaImporter\configure.h.cmake ..\external\magnum\src\Magnum\Animation\CMakeLists.txt ..\external\magnum\src\Magnum\CMakeLists.txt ..\external\magnum\src\Magnum\DebugTools\CMakeLists.txt ..\external\magnum\src\Magnum\GL\CMakeLists.txt ..\external\magnum\src\Magnum\MaterialTools\CMakeLists.txt ..\external\magnum\src\Magnum\Math\Algorithms\CMakeLists.txt ..\external\magnum\src\Magnum\Math\CMakeLists.txt ..\external\magnum\src\Magnum\MeshTools\CMakeLists.txt ..\external\magnum\src\Magnum\Platform\CMakeLists.txt ..\external\magnum\src\Magnum\Primitives\CMakeLists.txt ..\external\magnum\src\Magnum\SceneGraph\CMakeLists.txt ..\external\magnum\src\Magnum\SceneTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\CMakeLists.txt ..\external\magnum\src\Magnum\ShaderTools\configure.h.cmake ..\external\magnum\src\Magnum\Shaders\CMakeLists.txt ..\external\magnum\src\Magnum\Shaders\resources-gl.conf ..\external\magnum\src\Magnum\Text\CMakeLists.txt ..\external\magnum\src\Magnum\Text\configure.h.cmake ..\external\magnum\src\Magnum\TextureTools\CMakeLists.txt ..\external\magnum\src\Magnum\TextureTools\resources.conf ..\external\magnum\src\Magnum\Trade\CMakeLists.txt ..\external\magnum\src\Magnum\Trade\configure.h.cmake ..\external\magnum\src\Magnum\configure.h.cmake ..\external\magnum\src\Magnum\version.h.cmake ..\external\magnum\src\debuggers\CMakeLists.txt ..\external\modules\FindCorrade.cmake ..\external\modules\FindMagnum.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeDependentOption.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindOpenGL.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.1\bin\cmake\win\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles\3.22.3\CMakeCCompiler.cmake CMakeFiles\3.22.3\CMakeCXXCompiler.cmake CMakeFiles\3.22.3\CMakeRCCompiler.cmake CMakeFiles\3.22.3\CMakeSystem.cmake: phony
 
 
 #############################################

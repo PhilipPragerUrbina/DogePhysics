@@ -49,8 +49,7 @@ class CapsuleCollider : public Collider{
 
     Matrix3 createInertiaTensor(real mass) const override {
         Doge::Matrix3 mat{};
-        //todo proper inertia tensor(this one is cylinder)
-        //todo check orientation(seems to be z up
+        //todo estimated newton box tensor vs exact tensor below
 
         const real height = length;
         const real radiusSquare = radius * radius;
@@ -63,11 +62,31 @@ class CapsuleCollider : public Collider{
         const real sum3 = real(0.25) * radiusSquare + real(1.0 / 12.0) * heightSquare;
         const real IxxAndzz = factor1 * mass * (sum1 + sum2) + factor2 * mass * sum3;
         const real Iyy = factor1 * mass * sum1 + factor2 * mass * real(0.25) * radiusSquareDouble;
-     //   return Vector3(IxxAndzz, Iyy, IxxAndzz);
+        //   return Vector3(IxxAndzz, Iyy, IxxAndzz);
 
         mat.data[0][0]= IxxAndzz;
         mat.data[1][1]= IxxAndzz;
         mat.data[2][2]= Iyy;
+
+        /*
+         *
+
+        Vector3 halfExtents(radius, radius, radius);
+        halfExtents.z += length/2.0;
+
+        real lx = real(2.) * (halfExtents.x);
+        real ly = real(2.) * (halfExtents.y);
+        real lz = real(2.) * (halfExtents.z);
+        const real x2 = lx * lx;
+        const real y2 = ly * ly;
+        const real z2 = lz * lz;
+        const real scaledmass = mass * real(.08333333);
+
+
+        mat.data[0][0]= scaledmass * (y2 + z2);
+        mat.data[1][1]= scaledmass * (x2 + z2);
+        mat.data[2][2]= scaledmass * (x2 + y2);
+         */
 
         return mat;
     }
@@ -180,16 +199,16 @@ class CapsuleCollider : public Collider{
         data.normal = penetration_normal;
         data.depth = penetration_depth;
 
-        if(intersects){
-            //std::cout << c2.distance(transform->getPosition()) << "\n";
-         //   std::cout << penetration_depth << "\n";
-        }
+
 
         //todo switching this causes havok
-        data.r2 = c1 + radius * -penetration_normal ;//todo should it be updated here traqnform
-        data.r1 = c2 + collider.radius * penetration_normal;
+        data.r2 = c1 + radius * -penetration_normal - transform->getPosition() ;//todo should it be updated here traqnform
+        data.r1 = c2 + collider.radius * penetration_normal - collider.transform->getPosition();
 //todo doc the a,b swap madness r1 r2
-
+        if(intersects){
+        //    std::cout << data.r1 << "\n";
+            //   std::cout << penetration_depth << "\n";
+        }
 
         return intersects;
     }

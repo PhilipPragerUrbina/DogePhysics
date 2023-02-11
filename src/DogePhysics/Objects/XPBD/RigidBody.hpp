@@ -42,8 +42,14 @@ namespace Doge {
         /**
          * Get Inverse inertia tensor for constraint calculations
          */
-        Matrix3 getInverseIntertia() const {
-            return rotation.getOrientation().transposed() * (  inverse_intertia*rotation.getOrientation()) ;//todo is this correct. It seems to work but why? Different from should be(multiplications order is swapped). Maybe the inertia tensor was generated incorrectly in the first place?
+        Matrix3 getInverseIntertiaRotated() const {
+            // (  rotation.getOrientation()*inverse_intertia)*rotation.getOrientation().transposed()
+            return rotation.getOrientation().transposed()*( inverse_intertia* rotation.getOrientation()) ;//todo is this correct. It seems to work but why? Different from should be(multiplications order is swapped). Maybe the inertia tensor was generated incorrectly in the first place?
+        }
+
+        Matrix3 getInverseIntertiaLocal() const {
+            // (  rotation.getOrientation()*inverse_intertia)*rotation.getOrientation().transposed()
+            return inverse_intertia;//todo is this correct. It seems to work but why? Different from should be(multiplications order is swapped). Maybe the inertia tensor was generated incorrectly in the first place?
         }
 
         //todo doc

@@ -25,8 +25,10 @@ int main() {
     //Create renderer
     MagnumApplication renderer("Renderer");
 
+
+
 //Create Camera
-    Doge::Camera cam({0, 2, -20}, {0, 0, 1});
+    Doge::Camera cam({0, 40, -50}, {0, 0, 1});
 
 //Create world
     Doge::SceneGraph scene(new Doge::Empty());
@@ -36,19 +38,25 @@ int main() {
 
     createSceneXPBD(&scene);
 
-    bool first = false;
-    renderer.setUpdateCallback([&cam, &scene, &first](Doge::real delta_time) {
-        if(!first){
+
+    renderer.setUpdateCallback([&cam, &scene](Doge::real delta_time) {
+
             scene.update(0.01); //update scene
           //  first = true;
-        }
+
 
         //update camera
         //cam.setDirection(particle.getPosition()-cam.getPosition());
     });
 
+    bool first = true;
+    renderer.setRenderCallback([&cam, &scene,&first](MagnumRenderer &renderer) {
+        if(first){
+            renderer.loadMesh("cat.obj"); //todo load once for whole scene rather than for each object
+            renderer.loadTexture("cat.tga");
+            first = false;
+        }
 
-    renderer.setRenderCallback([&cam, &scene](MagnumRenderer &renderer) {
         cam.push(renderer); //render camera
 
         scene.render(&renderer); //render scene

@@ -62,7 +62,7 @@ namespace Doge {
         Vector3 scale = 1;
 
         //Material
-        Vector3 color = {255,0,0};
+        Vector3 color = {255,255,255};
 
         /**
          * Update this node and it's children

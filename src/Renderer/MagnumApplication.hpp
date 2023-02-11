@@ -31,12 +31,12 @@ public:
      * Instantiate the application
      * @param window_name The name of the window
      */
-    explicit MagnumApplication(const std::string& window_name) : Platform::Application{Arguments(argc, argv), Configuration{}.setTitle(window_name)} ,renderer(&shader, Vector2{windowSize()}){ //Set up the application and the renderer
+    explicit MagnumApplication(const std::string& window_name) : Platform::Application{Arguments(argc, argv), Configuration{}.setTitle(window_name)} ,renderer(Vector2{windowSize()}){ //Set up the application and the renderer
         //enable render features
         GL::Renderer::enable(GL::Renderer::Feature::DepthTest);
         GL::Renderer::enable(GL::Renderer::Feature::FaceCulling);
 
-        shader.setLightPositions({{10.4f, 1.0f, 0.75f, 0.0f}}); //Set the light positions
+
     }
 
     /**
@@ -67,7 +67,7 @@ private:
     int argc; //arguments
     char** argv = new char*[0];
 
-    Shaders::PhongGL shader; //The default shader, used in the renderer
+
 
     //callbacks
     std::function<void(MagnumRenderer&)> render_callback;

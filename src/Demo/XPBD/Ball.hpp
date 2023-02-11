@@ -23,7 +23,7 @@ private:
     double ss;
 public:
     Ball(Doge::real mass, Doge::Vector3 position,double s, bool move = false){
-        ss=3;
+        ss=10;
         size = s;
         action = move;
         particle = std::make_shared<Doge::RigidBody> (mass, new Doge::CapsuleCollider(size*ss, size) );//todo box collider
@@ -40,11 +40,24 @@ protected:
 
 
     void render(Doge::Renderer *renderer) override {
+        //Cat
+/*
         renderer->pushMatrix();
-        renderer->scale(size);
+        renderer->translate({0,-0.4,0});
+        renderer->rotate(90,{0,1,0});
+        renderer->scale({0.1,0.1,0.1});
+        renderer->drawMesh(4);
+        renderer->popMatrix();
+*/
+       //  Capsule
+
+        renderer->pushMatrix();
         renderer->translate({0,0,size* ss * 0.5});
+        renderer->scale(size);
         renderer->drawSphere();
-        renderer->translate({0,0,-size* ss });
+        renderer->scale(1.0/size);
+        renderer->translate({0,0,-size * ss });
+        renderer->scale(size);
         renderer->drawSphere();
         renderer->popMatrix();
         renderer->rotate(90,{1,0,0});

@@ -54,9 +54,14 @@ namespace Doge {
         Matrix3 operator * (const Matrix3& b) const {
             Matrix3 out{};
 
-            for (int i = 0; i < 3; i++) {
-                for (int k = 0; k < 3; k++) {
-                    out.data[i][k] = data[i][0] * b.data[0][k] + data[i][1] * b.data[1][k] + data[i][2] * b.data[2][k];
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 3; j++){
+                    real product = 0;
+                    for (int k = 0; k < 3; k++){
+                        product += data[i][k] * b.data[k][j];
+                    }
+                    out.data[i][j] = product;
+
                 }
             }
             return out;

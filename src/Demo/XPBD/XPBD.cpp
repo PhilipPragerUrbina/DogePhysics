@@ -15,15 +15,13 @@ scene->addObject(world);
 
 
 
-
-
-
-    for (int i = -4; i < 4; ++i) {
-        Ball* ball = new  Ball(10000,{(Doge::real)i * 2.1,-3.1,0}, 1, false);
+    for (int i = -4; i < 10; ++i) {
+        Ball* ball = new  Ball(100000,{(Doge::real)i * 4.2,-3.1,0}, 2, false);
         world->addBall(ball);
     }
 
-    int height = 60;
+
+    int height = 40;
     double width = 1.1;
     double spacing = 3;
 
@@ -42,7 +40,7 @@ scene->addObject(world);
         Ball* ball2 = new  Ball(1,{0, i * spacing ,-width},1);
         Doge::Quaternion rot = ball2->getParticle()->getRotation();
         ball2->getParticle()->applyForce({0,-9.8,0});
-        rot.addVector({0,M_PI/1.7,0});
+        rot.addVector({0,M_PI/1.5,0});
         ball2->getParticle()->setRotation(rot);
         world->addBall(ball2);
 

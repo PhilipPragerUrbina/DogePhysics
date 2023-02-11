@@ -58,8 +58,8 @@ namespace Doge {
 
 //todo https://stackoverflow.com/questions/137282/how-can-i-avoid-the-diamond-of-death-when-using-multiple-inheritance
 
-            Vector3 w1 = a->getInverseMass() + a->getInverseIntertia().preMultiply(r1.cross(n)) * (r1.cross(n)); //Compute generalized masses
-            Vector3 w2 = b->getInverseMass() + b->getInverseIntertia().preMultiply(r2.cross(n)) * (r2.cross(n));
+            Vector3 w1 = a->getInverseMass() + a->getInverseIntertiaLocal().preMultiply(r1.cross(n)) * (r1.cross(n)); //Compute generalized masses
+            Vector3 w2 = b->getInverseMass() + b->getInverseIntertiaLocal().preMultiply(r2.cross(n)) * (r2.cross(n));
 
             Vector3 lambda = (-C)/(w1+w2+(inverse_stiffness / (sub_step_delta * sub_step_delta))); //Compute Lagrange multiplier
 
@@ -67,11 +67,11 @@ namespace Doge {
             b->setPosition(b->getPosition() -lambda*n*b->getInverseMass()); //Negative
 
             Quaternion new_rotation1 = a->getRotation();
-            new_rotation1.addVector(a->getInverseIntertia() * (r1.cross(lambda*n))); //add vector and multiply by lambda/  a->setRotation(new_rotation1); //update values
+            new_rotation1.addVector(a->getInverseIntertiaRotated() * (r1.cross(lambda*n))); //add vector and multiply by lambda/  a->setRotation(new_rotation1); //update values
             a->setRotation(new_rotation1);
 
             Quaternion new_rotation2 = b->getRotation();
-            new_rotation2.addVector(-(b->getInverseIntertia() * (r2.cross(lambda*n)))); //add vector and multiply by lambda. Also make negative.
+            new_rotation2.addVector(-(b->getInverseIntertiaRotated() * (r2.cross(lambda*n)))); //add vector and multiply by lambda. Also make negative.
             b->setRotation(new_rotation2); //update values
 
 

@@ -9,6 +9,11 @@ add_subdirectory(external/corrade EXCLUDE_FROM_ALL)
 # Add Magnum as a subproject, enable Sdl2Application
 set(CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/external/SDL2-2.24.2" ${CMAKE_PREFIX_PATH})
 set(MAGNUM_WITH_SDL2APPLICATION ON CACHE BOOL "" FORCE)
+set(MAGNUM_WITH_ANYIMAGEIMPORTER ON CACHE BOOL "" FORCE)
+set(MAGNUM_WITH_TGAIMPORTER ON CACHE BOOL "" FORCE)
+set(MAGNUM_WITH_OBJIMPORTER ON CACHE BOOL "" FORCE)
+
+
 add_subdirectory(external/magnum EXCLUDE_FROM_ALL)
 
 find_package(Magnum REQUIRED
@@ -17,9 +22,12 @@ find_package(Magnum REQUIRED
         Primitives
         Shaders
         Trade
-        Sdl2Application)
+        Sdl2Application
+        )
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 add_executable(DogePhysics src/main.cpp src/DogePhysics/Collisions/Colliders/Collider.hpp)
+add_dependencies(DogePhysics Magnum::TgaImporter Magnum::ObjImporter Magnum::AnyImageImporter)
+
 target_link_libraries(DogePhysics PRIVATE
         Corrade::Main
         Magnum::Application
@@ -28,6 +36,7 @@ target_link_libraries(DogePhysics PRIVATE
         Magnum::MeshTools
         Magnum::Primitives
         Magnum::Shaders
-        Magnum::Trade)
+        Magnum::Trade
+      )
 
 
